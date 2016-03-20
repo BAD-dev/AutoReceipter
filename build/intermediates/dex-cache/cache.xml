@@ -1,26 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="C:\Users\Julian\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.9.2\e641cb91bec06bc64d9ddf7a7d7062caceec73cd\gdx-1.9.2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="e641cb91bec06bc64d9ddf7a7d7062caceec73cd">
-        <dex dex="A:\workspace\AndroidStudioProjects\AutoReceipter\android\build\intermediates\pre-dexed\debug\gdx-1.9.2_17e3e9b539400b7ae6843989e2d1ae3725fee36f.jar" />
-    </item>
-    <item
-        jar="C:\Users\Julian\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.9.2\342b830bc718dc1965c8f13fc58dc500e8bd262f\gdx-backend-android-1.9.2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="342b830bc718dc1965c8f13fc58dc500e8bd262f">
-        <dex dex="A:\workspace\AndroidStudioProjects\AutoReceipter\android\build\intermediates\pre-dexed\debug\gdx-backend-android-1.9.2_3d0e55773fbb9af5ff01b7ad81fa576cb3f51e1c.jar" />
-    </item>
-    <item
-        jar="A:\workspace\AndroidStudioProjects\AutoReceipter\core\build\libs\core-1.0.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="72cae8614436638f383e87ab52dc81e67d537227">
-        <dex dex="A:\workspace\AndroidStudioProjects\AutoReceipter\android\build\intermediates\pre-dexed\debug\core-1.0_b074edfe3b25dd538437589e934b5d9a7f04d685.jar" />
-    </item>
-
-</items>

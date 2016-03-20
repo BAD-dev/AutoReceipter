@@ -2,5 +2,9 @@
     {
         "merged": "A:\\workspace\\AndroidStudioProjects\\AutoReceipter\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
         "source": "A:\\workspace\\AndroidStudioProjects\\AutoReceipter\\android\\res\\drawable-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "A:\\workspace\\GitHub\\AutoReceipter\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\ic_launcher.png",
+        "source": "A:\\workspace\\GitHub\\AutoReceipter\\android\\res\\drawable-xhdpi\\ic_launcher.png"
     }
 ]

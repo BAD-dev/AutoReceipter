@@ -7,6 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
  * Created by Julian on 3/23/2016.
+ *
+ * Shopping list screen class
  */
 public class ListScreen extends BaseScreen {
     public ListScreen(final AutoReceipter app) {

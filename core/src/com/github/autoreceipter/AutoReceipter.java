@@ -17,15 +17,22 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
 
+/**
+ * Created by Julian on 3/20/2016.
+ *
+ *
+ * Application Listener, which holds methods for screen transitions, rendering,
+ * resizing, and screen switching
+ */
 public abstract class AutoReceipter implements ApplicationListener {
 	public Stage stage;
     public TextureAtlas atlas;
     public Skin skin;
     public Color color;
     public float width, height;
-    public static InputMultiplexer inputs = new InputMultiplexer();
-    public float transitionDuration = .333f;
-    private float totalTransitionTime = -420f;
+    public static InputMultiplexer inputs = new InputMultiplexer(); // for multiple inputs
+    public float transitionDuration = .333f;    // duration of transitions
+    private float totalTransitionTime = -420f;  //
     private boolean changeScreen = false;
 
     public BaseScreen activeScreen, nextScreen;
@@ -41,6 +48,8 @@ public abstract class AutoReceipter implements ApplicationListener {
         height = 1280;//Gdx.graphics.getHeight();
 
         stage = new Stage(new StretchViewport(width, height));
+
+        // packedImage.atlas generated using imagepacker tool
         atlas = new TextureAtlas("packed/packedImage.atlas");
         skin = new Skin(atlas);
         new SkinStyles().style(skin, atlas);
@@ -52,6 +61,7 @@ public abstract class AutoReceipter implements ApplicationListener {
 
         Gdx.input.setInputProcessor(stage);
 
+        // Input listener for the android "back" key
         Gdx.input.setCatchBackKey(true);
         stage.addListener(new InputListener() {
             public boolean keyDown(InputEvent event, int keycode) {
@@ -84,6 +94,8 @@ public abstract class AutoReceipter implements ApplicationListener {
     }
 
     @Override
+    // This will remove the old screen after it has fully transitioned,
+    // based on the delta time.
 	public void render () {
 		float delta = Gdx.graphics.getDeltaTime();
 
@@ -121,6 +133,7 @@ public abstract class AutoReceipter implements ApplicationListener {
         color.set(newColor);
     }
 
+    // This is called whenever a screen changes
     public void switchScreens(BaseScreen screen) {
         nextScreen = screen;
         nextScreen.setTouchable(Touchable.enabled);

@@ -7,6 +7,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
  * Created by Julian on 3/22/2016.
+ *
+ * Scan screen class
  */
 public class ScanScreen extends BaseScreen {
 

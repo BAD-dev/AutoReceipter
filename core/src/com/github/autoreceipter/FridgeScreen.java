@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
  * Created by Julian on 3/22/2016.
+ *
+ * Fridge screen class
  */
 public class FridgeScreen extends BaseScreen {
 

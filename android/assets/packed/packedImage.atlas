@@ -1,0 +1,41 @@
+
+packedImage.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+back-button
+  rotate: false
+  xy: 2, 2
+  size: 201, 104
+  orig: 201, 104
+  offset: 0, 0
+  index: -1
+badlogic
+  rotate: false
+  xy: 2, 108
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+fridge-button
+  rotate: false
+  xy: 260, 260
+  size: 291, 104
+  orig: 291, 104
+  offset: 0, 0
+  index: -1
+list-button
+  rotate: false
+  xy: 260, 154
+  size: 291, 104
+  orig: 291, 104
+  offset: 0, 0
+  index: -1
+scan-button
+  rotate: false
+  xy: 553, 260
+  size: 291, 104
+  orig: 291, 104
+  offset: 0, 0
+  index: -1

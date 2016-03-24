@@ -1,0 +1,7 @@
+From the command line:
+
+java -jar runnable-texturepacker.jar [inputDir] [outputDir] [packFileName]
+
+inputDir:     ../AutoReceipter/android/assets
+outputDir:    ../AutoReceipter/android/assets/packed
+packFileName: packedImage

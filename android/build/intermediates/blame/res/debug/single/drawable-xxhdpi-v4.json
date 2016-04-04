@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Georg\\Documents\\School\\COP\\AutoReceipter\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
+        "source": "C:\\Users\\Georg\\Documents\\School\\COP\\AutoReceipter\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
         "merged": "A:\\workspace\\GitHub\\AutoReceipter\\android\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4\\ic_launcher.png",
         "source": "A:\\workspace\\GitHub\\AutoReceipter\\android\\res\\drawable-xxhdpi\\ic_launcher.png"
     }

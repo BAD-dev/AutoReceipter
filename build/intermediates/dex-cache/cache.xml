@@ -2,25 +2,25 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Georg\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.9.2\e641cb91bec06bc64d9ddf7a7d7062caceec73cd\gdx-1.9.2.jar"
-        jumboMode="false"
-        revision="23.0.2"
-        sha1="e641cb91bec06bc64d9ddf7a7d7062caceec73cd">
-        <dex dex="C:\Users\Georg\Documents\School\COP\AutoReceipter\android\build\intermediates\pre-dexed\debug\gdx-1.9.2_29782dd71fcf6b2cc48ca2fd08f5db95dc26f02c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Georg\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.9.2\342b830bc718dc1965c8f13fc58dc500e8bd262f\gdx-backend-android-1.9.2.jar"
+        jar="C:\Users\Julian\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx-backend-android\1.9.2\342b830bc718dc1965c8f13fc58dc500e8bd262f\gdx-backend-android-1.9.2.jar"
         jumboMode="false"
         revision="23.0.2"
         sha1="342b830bc718dc1965c8f13fc58dc500e8bd262f">
-        <dex dex="C:\Users\Georg\Documents\School\COP\AutoReceipter\android\build\intermediates\pre-dexed\debug\gdx-backend-android-1.9.2_bc6608efe0ff6b24226682d813d472f54a9f755b.jar" />
+        <dex dex="A:\workspace\GitHub\AutoReceipter\android\build\intermediates\pre-dexed\debug\gdx-backend-android-1.9.2_3d0e55773fbb9af5ff01b7ad81fa576cb3f51e1c.jar" />
     </item>
     <item
-        jar="C:\Users\Georg\Documents\School\COP\AutoReceipter\core\build\libs\core-1.0.jar"
+        jar="C:\Users\Julian\.gradle\caches\modules-2\files-2.1\com.badlogicgames.gdx\gdx\1.9.2\e641cb91bec06bc64d9ddf7a7d7062caceec73cd\gdx-1.9.2.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="8a1c6aee02f1c03fcb6d5c161c252ecc2029b614">
-        <dex dex="C:\Users\Georg\Documents\School\COP\AutoReceipter\android\build\intermediates\pre-dexed\debug\core-1.0_4d76df65c6d793895ad4576a8f50684cfbb4a823.jar" />
+        sha1="e641cb91bec06bc64d9ddf7a7d7062caceec73cd">
+        <dex dex="A:\workspace\GitHub\AutoReceipter\android\build\intermediates\pre-dexed\debug\gdx-1.9.2_17e3e9b539400b7ae6843989e2d1ae3725fee36f.jar" />
+    </item>
+    <item
+        jar="A:\workspace\GitHub\AutoReceipter\core\build\libs\core-1.0.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="0e44aa6c77c89207da7b764e90907935c4e5e84d">
+        <dex dex="A:\workspace\GitHub\AutoReceipter\android\build\intermediates\pre-dexed\debug\core-1.0_a606a3be87663649845655a3f7aa4507d61ca171.jar" />
     </item>
 
 </items>

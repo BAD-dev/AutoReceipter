@@ -120,22 +120,22 @@ public class FridgeScreen extends BaseScreen {
 
             while(itemCount < maxItemsPerLine) {
                 //addWidget((i * maxItemsPerLine) + itemCount);
-                scrollTable.add(itemsDisplayed.getValueAt((i * maxItemsPerLine) + itemCount).widget).row();
+                scrollTable.add(itemsDisplayed.getValueAt((i * maxItemsPerLine) + itemCount).widget).expandX().padLeft(35f).left();
                 itemCount++;
             }
 
             scrollTable.row();
         }
 
-        for(int i = 0; i < outOfBounds; i++) {
-            addText((totalLines * maxItemsPerLine) + i);
-        }
-
-        //scrollTable.row();
-
-        for(int i = 0; i < outOfBounds; i++) {
-            addWidget((totalLines * maxItemsPerLine) + i);
-        }
+//        for(int i = 0; i < outOfBounds; i++) {
+//            addText((totalLines * maxItemsPerLine) + i);
+//        }
+//
+//        //scrollTable.row();
+//
+//        for(int i = 0; i < outOfBounds; i++) {
+//            addWidget((totalLines * maxItemsPerLine) + i);
+//        }
     }
 
     private final void addText(int i) {

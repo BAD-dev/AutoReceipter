@@ -6,14 +6,14 @@ filter: Nearest,Nearest
 repeat: none
 BADdev
   rotate: false
-  xy: 833, 850
-  size: 128, 128
-  orig: 128, 128
+  xy: 630, 798
+  size: 180, 180
+  orig: 180, 180
   offset: 0, 0
   index: -1
 back-button
   rotate: false
-  xy: 630, 874
+  xy: 812, 874
   size: 201, 104
   orig: 201, 104
   offset: 0, 0
@@ -48,14 +48,14 @@ list-button2-clicked
   index: -1
 question-mark-button
   rotate: false
-  xy: 630, 762
+  xy: 812, 762
   size: 88, 110
   orig: 88, 110
   offset: 0, 0
   index: -1
 question-mark-button-clicked
   rotate: false
-  xy: 720, 769
+  xy: 902, 769
   size: 88, 103
   orig: 88, 103
   offset: 0, 0

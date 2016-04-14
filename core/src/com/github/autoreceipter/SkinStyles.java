@@ -25,14 +25,23 @@ public class SkinStyles {
     public void style(Skin skin, TextureAtlas atlas) {
         /* Fonts */
         BitmapFont font = new BitmapFont();
-        font.getData().setScale(3, 3);
+        font.getData().setScale(1, 1);
         skin.add("default", font);
+
+        BitmapFont itemNameFont = new BitmapFont();
+        itemNameFont.getData().setScale(2, 2);
+        skin.add("itemName", itemNameFont);
 
         /* Labels */
         Label.LabelStyle lbs = new Label.LabelStyle();
         lbs.font = font;
         lbs.fontColor = Color.WHITE;
         skin.add("default", lbs);
+
+        Label.LabelStyle itemName = new Label.LabelStyle();
+        itemName.font = itemNameFont;
+        itemName.fontColor = Color.WHITE;
+        skin.add("itemNameStyle", itemName);
 
         /* Colors */
         skin.add("lt-blue", new Color(.6f, .8f, 1f, 1f));

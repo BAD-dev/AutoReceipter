@@ -4,6 +4,20 @@ size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
+BADdev
+  rotate: false
+  xy: 833, 850
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+back-button
+  rotate: false
+  xy: 630, 874
+  size: 201, 104
+  orig: 201, 104
+  offset: 0, 0
+  index: -1
 fridge-button2
   rotate: false
   xy: 2, 784
@@ -34,14 +48,14 @@ list-button2-clicked
   index: -1
 question-mark-button
   rotate: false
-  xy: 630, 868
+  xy: 630, 762
   size: 88, 110
   orig: 88, 110
   offset: 0, 0
   index: -1
 question-mark-button-clicked
   rotate: false
-  xy: 720, 875
+  xy: 720, 769
   size: 88, 103
   orig: 88, 103
   offset: 0, 0

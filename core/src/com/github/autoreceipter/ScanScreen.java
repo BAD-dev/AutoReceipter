@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
 /**
  * Created by Julian on 3/22/2016.
@@ -20,6 +21,7 @@ public class ScanScreen extends BaseScreen {
         Label label = new Label("Scan Screen", app.skin);
 
         table.defaults().pad(6f);
+        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_noheader.png")));
         table.add(label);
         table.row();
         //table.add(backButton);

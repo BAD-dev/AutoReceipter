@@ -86,7 +86,7 @@ public abstract class AutoReceipter implements ApplicationListener {
      * Called when the {@link Application} is resized. This can happen at any point during a non-paused state but will never happen
      * before a call to {@link #create()}.
      *
-     * @param width  the new width in pixels
+     * @param width  the new widgetWidth in pixels
      * @param height the new height in pixels
      */
     @Override

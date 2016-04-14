@@ -37,11 +37,12 @@ public abstract class BaseScreen extends Group {
 
         table.defaults().pad(padSize);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background.png")));
+        //table.setBackground(app.skin.getDrawable("bg_header"));
         table.setSize(app.width, app.height);
         this.addActor(table);
     }
 
-    private NinePatch getNinePatch(String fName) {
+    public NinePatch getNinePatch(String fName) {
         final Texture t = new Texture(Gdx.files.internal(fName));
         return new NinePatch( new TextureRegion(t, 1, 1 , t.getWidth() - 2, t.getHeight() - 2), 10, 10, 10, 10);
     }
@@ -54,7 +55,7 @@ public abstract class BaseScreen extends Group {
     public void screenTransition(transitionDir d) {
         float x, y;
         float duration = .333f;
-        //float x = -app.width;
+        //float x = -app.widgetWidth;
         MoveToAction action;
 
         if(d == transitionDir.LEFT) {

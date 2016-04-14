@@ -4,6 +4,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.Camera;
@@ -44,8 +45,9 @@ public abstract class AutoReceipter implements ApplicationListener {
 
 	@Override
 	public void create () {
-		width = 960;//Gdx.graphics.getWidth();
-        height = 1280;//Gdx.graphics.getHeight();
+		width = 810;//Gdx.graphics.getWidth();
+        height = 1440;//Gdx.graphics.getHeight();
+        System.out.println(width +" "+ height);
 
         stage = new Stage(new StretchViewport(width, height));
 
@@ -64,9 +66,11 @@ public abstract class AutoReceipter implements ApplicationListener {
         // Input listener for the android "back" key
         Gdx.input.setCatchBackKey(true);
         stage.addListener(new InputListener() {
-            public boolean keyDown(InputEvent event, int keycode) {
-                if (keycode == Input.Keys.BACK)
+            @Override
+            public boolean keyUp(InputEvent event, int keycode) {
+                if(keycode == Input.Keys.BACK) {
                     activeScreen.onBackPress();
+                }
                 return false;
             }
         });
@@ -99,19 +103,20 @@ public abstract class AutoReceipter implements ApplicationListener {
 	public void render () {
 		float delta = Gdx.graphics.getDeltaTime();
 
-        /*if(totalTransitionTime > 0f) {
+        if(totalTransitionTime > 0f) {
             totalTransitionTime -= delta;
+
             if(totalTransitionTime <= 0f) {
                 activeScreen.hide();
                 activeScreen.remove();
                 activeScreen = nextScreen;
                 activeScreen.setTouchable(Touchable.enabled);
                 activeScreen.setPosition(0f, 0f);
-                nextScreen = null;
+                //nextScreen = null;
             }
-        }*/
+        }
 
-        if(changeScreen) {
+        /*if(changeScreen) {
             activeScreen.hide();
             activeScreen.remove();
             activeScreen = nextScreen;
@@ -119,7 +124,7 @@ public abstract class AutoReceipter implements ApplicationListener {
             activeScreen.setPosition(0f, 0f);
             nextScreen = null;
             changeScreen = false;
-        }
+        }*/
 
         color = new Color(Color.BLACK);
         Gdx.gl.glClearColor(color.r, color.g, color.b, color.a);
@@ -135,20 +140,21 @@ public abstract class AutoReceipter implements ApplicationListener {
 
     // This is called whenever a screen changes
     public void switchScreens(BaseScreen screen) {
+        totalTransitionTime = activeScreen.defaultDuration;
+
         nextScreen = screen;
-        nextScreen.setTouchable(Touchable.enabled);
+        nextScreen.setTouchable(Touchable.disabled);
         nextScreen.show();
         stage.addActor(nextScreen);
 
         if (activeScreen != null) {
-            activeScreen.screenTransition();
-            changeScreen = true;
+            activeScreen.screenTransition(activeScreen.getDirection());
+            //changeScreen = true;
             activeScreen.setTouchable(Touchable.disabled);
-            activeScreen.toBack();
-            activeScreen.hide();
+            //activeScreen.toBack();
+            activeScreen.toFront();
+            //activeScreen.hide();
         }
-
-
     }
 
     /**

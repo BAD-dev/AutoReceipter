@@ -15,27 +15,32 @@ public class ScanScreen extends BaseScreen {
     public ScanScreen(final AutoReceipter app) {
         super(app);
 
-        final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
+        //final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
 
         Label label = new Label("Scan Screen", app.skin);
 
         table.defaults().pad(6f);
         table.add(label);
         table.row();
-        table.add(backButton);
+        //table.add(backButton);
 
-        backButton.addListener(new ClickListener() {
+        /*backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 app.switchScreens(new MainMenuScreen(app));
                 backButton.setChecked(false);
             }
-        });
+        });*/
 
     }
 
     @Override
     public void onBackPress() {
         app.switchScreens(new MainMenuScreen(app));
+    }
+
+    @Override
+    public transitionDir getDirection() {
+        return transitionDir.RIGHT;
     }
 }

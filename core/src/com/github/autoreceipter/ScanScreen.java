@@ -1,9 +1,6 @@
 package com.github.autoreceipter;
 
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
 /**
@@ -42,7 +39,7 @@ public class ScanScreen extends BaseScreen {
     }
 
     @Override
-    public transitionDir getDirection() {
+    public transitionDir getDirection(BaseScreen nextScreen) {
         return transitionDir.RIGHT;
     }
 }

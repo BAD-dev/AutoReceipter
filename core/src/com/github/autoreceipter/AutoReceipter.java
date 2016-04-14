@@ -148,7 +148,7 @@ public abstract class AutoReceipter implements ApplicationListener {
         stage.addActor(nextScreen);
 
         if (activeScreen != null) {
-            activeScreen.screenTransition(activeScreen.getDirection());
+            activeScreen.screenTransition(activeScreen.getDirection(nextScreen));
             //changeScreen = true;
             activeScreen.setTouchable(Touchable.disabled);
             //activeScreen.toBack();

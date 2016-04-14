@@ -28,7 +28,7 @@ public abstract class BaseScreen extends Group {
     public abstract void onBackPress();
 
     public enum transitionDir {UP, DOWN, LEFT, RIGHT}
-    public abstract transitionDir getDirection();
+    public abstract transitionDir getDirection(BaseScreen nextScreen);
 
     public BaseScreen(AutoReceipter app) {
         this.app = app;

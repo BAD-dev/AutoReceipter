@@ -58,7 +58,7 @@ public class FridgeItem extends Widget {
         widget.setWidth(widgetWidth);
         widget.setHeight(widgetHeight);
         widget.add(image).expandX().left();
-        widget.add(new Label(getLastPurchased(), skin)).padLeft(20f).padBottom(20f).padTop(20f);
+        widget.add(new Label(getLastPurchased(), skin)).padLeft(15f).padBottom(15f).padTop(15f);
         widget.debug();
     }
 
@@ -91,8 +91,8 @@ public class FridgeItem extends Widget {
         return quantity;
     }
 
-    public final void incrementQuantity() {
-        quantity++;
+    public final void incrementQuantity(int i) {
+        quantity += i;
     }
 
     public static void setDimensions(float w, float h) {

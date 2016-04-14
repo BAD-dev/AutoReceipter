@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 
 /**
  * Created by Julian on 3/20/2016.
@@ -48,6 +49,15 @@ public class MainMenuScreen extends BaseScreen {
             }
         });
 
+        // Change screens if list button is pressed
+        questionMarkButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                app.switchScreens(new HelpScreen(app));
+                questionMarkButton.setChecked(false);
+            }
+        });
+
         // Set up table and add in our buttons
         table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background.png")));
@@ -72,7 +82,11 @@ public class MainMenuScreen extends BaseScreen {
     }
 
     @Override
-    public transitionDir getDirection() {
+    public transitionDir getDirection(BaseScreen nextScreen) {
+
+        if(nextScreen.getClass() == HelpScreen.class)
+            return transitionDir.DOWN;
+
         return transitionDir.LEFT;
     }
 }

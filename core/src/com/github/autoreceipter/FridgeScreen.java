@@ -4,7 +4,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
-import com.badlogic.gdx.scenes.scene2d.ui.Cell;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -175,7 +174,7 @@ public class FridgeScreen extends BaseScreen {
     }
 
     @Override
-    public transitionDir getDirection() {
+    public transitionDir getDirection(BaseScreen nextScreen) {
         return transitionDir.RIGHT;
     }
 }

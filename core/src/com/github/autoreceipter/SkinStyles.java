@@ -49,14 +49,14 @@ public class SkinStyles {
         skin.add("dark-blue", new Color(.1f, .3f, 1f, 1f));
 
         /* Skins */
-        skin.add("scan-button", atlas.findRegion("scan-button2"), TextureRegion.class);
-        skin.add("fridge-button", atlas.findRegion("fridge-button2"), TextureRegion.class);
-        skin.add("list-button", atlas.findRegion("list-button2"), TextureRegion.class);
-        skin.add("scan-button-clicked", atlas.findRegion("scan-button2-clicked"), TextureRegion.class);
-        skin.add("fridge-button-clicked", atlas.findRegion("fridge-button2-clicked"), TextureRegion.class);
-        skin.add("list-button-clicked", atlas.findRegion("list-button2-clicked"), TextureRegion.class);
-        skin.add("question-mark-button", atlas.findRegion("question-mark-button"), TextureRegion.class);
-        skin.add("question-mark-button-clicked", atlas.findRegion("question-mark-button-clicked"), TextureRegion.class);
+        skin.add("scan-button", atlas.findRegion("scan-button3"), TextureRegion.class);
+        skin.add("fridge-button", atlas.findRegion("fridge-button3"), TextureRegion.class);
+        skin.add("list-button", atlas.findRegion("list-button3"), TextureRegion.class);
+        skin.add("scan-button-clicked", atlas.findRegion("scan-button3-clicked"), TextureRegion.class);
+        skin.add("fridge-button-clicked", atlas.findRegion("fridge-button3-clicked"), TextureRegion.class);
+        skin.add("list-button-clicked", atlas.findRegion("list-button3-clicked"), TextureRegion.class);
+        skin.add("question-mark-button", atlas.findRegion("question-mark-button2"), TextureRegion.class);
+        //skin.add("question-mark-button-clicked", atlas.findRegion("question-mark-button-clicked"), TextureRegion.class);
         skin.add("BADdev", atlas.findRegion("BADdev"), TextureRegion.class);
 
         /* TextureRegions */
@@ -68,7 +68,8 @@ public class SkinStyles {
         TextureRegionDrawable listButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("list-button-clicked")));
         //TextureRegionDrawable backButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("back-button")));
         TextureRegionDrawable questionMarkButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button")));
-        TextureRegionDrawable questionMarkButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button-clicked")));
+        TextureRegionDrawable questionMarkButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button")));
+        //TextureRegionDrawable questionMarkButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button-clicked")));
         TextureRegionDrawable BADdevReqion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("BADdev")));
 
 
@@ -95,9 +96,9 @@ public class SkinStyles {
 
     public NinePatchDrawable getBackground(String screen) {
         if(screen.equalsIgnoreCase("main"))
-            return new NinePatchDrawable(getNinePatch("background/background.png"));
+            return new NinePatchDrawable(getNinePatch("background/background_white.png"));
         else
-            return new NinePatchDrawable(getNinePatch("background/background_noheader.png"));
+            return new NinePatchDrawable(getNinePatch("background/background_white_noheader.png"));
     }
 
     private NinePatch getNinePatch(String fName) {

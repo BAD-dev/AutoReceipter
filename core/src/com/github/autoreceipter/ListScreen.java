@@ -18,7 +18,7 @@ public class ListScreen extends BaseScreen {
         Label label = new Label("Shopping List Screen", app.skin);
 
         table.defaults().pad(6f);
-        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_noheader.png")));
+        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
         table.add(label);
         table.row();
         //table.add(backButton);

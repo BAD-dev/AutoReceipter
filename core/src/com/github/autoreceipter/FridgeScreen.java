@@ -26,7 +26,7 @@ public class FridgeScreen extends BaseScreen {
     public FridgeScreen(final AutoReceipter app) {
         super(app);
 
-        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_noheader.png")));
+        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
         //final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
 
         Label label = new Label("Fridge Screen", app.skin);

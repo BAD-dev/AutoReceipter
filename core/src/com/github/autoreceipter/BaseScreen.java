@@ -36,7 +36,7 @@ public abstract class BaseScreen extends Group {
         defaultDuration = app.transitionDuration;
 
         table.defaults().pad(padSize);
-        table.setBackground(new NinePatchDrawable(getNinePatch("background/background.png")));
+        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white.png")));
         //table.setBackground(app.skin.getDrawable("bg_header"));
         table.setSize(app.width, app.height);
         this.addActor(table);

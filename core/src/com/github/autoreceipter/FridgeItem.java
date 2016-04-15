@@ -1,13 +1,18 @@
 package com.github.autoreceipter;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.NinePatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
 import java.awt.TextArea;
 import java.text.DateFormat;
@@ -62,6 +67,7 @@ public class FridgeItem extends Widget {
         //widget.setWidth(widgetWidth);
         //widget.setHeight(widgetHeight);
         widget.defaults();
+        //widget.setBackground(new NinePatchDrawable(getNinePatch("background/background_trans.png")));
         widget.setWidth(widgetWidth);
         widget.add(image).center().left();
 
@@ -115,5 +121,10 @@ public class FridgeItem extends Widget {
     public static void setDimensions(float w, float h) {
         widgetWidth = w;
         widgetHeight = h;
+    }
+
+    private NinePatch getNinePatch(String fName) {
+        final Texture t = new Texture(Gdx.files.internal(fName));
+        return new NinePatch( new TextureRegion(t, 1, 1 , t.getWidth() - 2, t.getHeight() - 2), 10, 10, 10, 10);
     }
 }

@@ -60,17 +60,15 @@ public class MainMenuScreen extends BaseScreen {
 
         // Set up table and add in our buttons
         table.defaults().pad(6f);
-        table.setBackground(new NinePatchDrawable(getNinePatch("background/background.png")));
+        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white.png")));
         //table.setBackground(app.skin.getDrawable("scan-button"));
         //table.setBackground(app.skin.getDrawable())
-        table.add(questionMarkButton).expandY().expandX().top().right();
+        table.add(questionMarkButton).expandY().expandX().top().right().padBottom(100f);
         table.row();
         //table.bottom();
         //table.setColor(app.skin.getColor("lt-blue"));
-        table.add(scanButton);
-        table.row();
-        table.add(fridgeButton);
-        table.row();
+        table.add(scanButton).padTop(300f).row();
+        table.add(fridgeButton).row();
         table.add(listButton).padBottom(300f);
         //table.row();
         //table.debug();

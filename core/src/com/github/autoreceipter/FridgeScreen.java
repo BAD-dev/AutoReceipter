@@ -19,6 +19,8 @@ public class FridgeScreen extends BaseScreen {
 
     // All fridge items
     private ArrayMap<Integer, FridgeItem> items;
+
+    // Fridge items currently displayed from search filter
     private ArrayMap<Integer, FridgeItem> itemsDisplayed;
 
     private Table scrollTable;
@@ -72,6 +74,9 @@ public class FridgeScreen extends BaseScreen {
         };
     }
 
+    /*
+     * Create 30 FridgeItmes and place into fridge list
+     */
     private void createFridgeInventory() {
         if(items.size != 0)
             items.clear();
@@ -87,6 +92,9 @@ public class FridgeScreen extends BaseScreen {
 
     }
 
+    /*
+     * Places all FridgeItems from our list into Scrollpane
+     */
     private void arrangeTable() {
         scrollTable.clear();
 
@@ -120,7 +128,7 @@ public class FridgeScreen extends BaseScreen {
 
             while(itemCount < maxItemsPerLine) {
                 //addWidget((i * maxItemsPerLine) + itemCount);
-                scrollTable.add(itemsDisplayed.getValueAt((i * maxItemsPerLine) + itemCount).widget).expandX().padLeft(35f).left();
+                scrollTable.add(itemsDisplayed.getValueAt((i * maxItemsPerLine) + itemCount).widget).expandX().prefHeight(300f).padLeft(35f).left();
                 itemCount++;
             }
 

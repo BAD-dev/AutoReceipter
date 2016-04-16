@@ -124,6 +124,7 @@ public class Client {
 		BufferedInputStream reader = new BufferedInputStream(
 				connection.getInputStream());
 
+		// should this use external storage? -julian
 		FileHandle file = Gdx.files.local(outputFile);
 
 		try {

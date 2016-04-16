@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.scenes.scene2d.ui.HorizontalGroup;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -36,7 +35,6 @@ public class FridgeItem extends Widget {
 
     public Table widget;
     public Table stats;
-    public HorizontalGroup hg;
 
     private int id;
     private Label description;
@@ -70,20 +68,12 @@ public class FridgeItem extends Widget {
         //widget.setHeight(widgetHeight);
         widget.defaults();
         //widget.setBackground(new NinePatchDrawable(getNinePatch("background/background_trans.png")));
-        //widget.setFillParent(true);
         widget.setWidth(widgetWidth);
         widget.add(image).center().left();
 
         stats.add(new Label(getId(), skin, "itemNameStyle")).pad(2f).left().top().row();
         stats.add(new Label(getQuantity(), skin)).pad(2f).left().top().row();
         stats.add(new Label(getLastPurchased(), skin)).pad(2f).left().top().row();
-
-//        hg = new HorizontalGroup();
-//        hg.addActor(image);
-//        hg.addActor(new Label(getId(), skin, "itemNameStyle"));
-//        hg.addActor(new Label(getQuantity(), skin));
-//        hg.addActor(new Label(getLastPurchased(), skin));
-//        hg.center();
 
         widget.add(stats);
 

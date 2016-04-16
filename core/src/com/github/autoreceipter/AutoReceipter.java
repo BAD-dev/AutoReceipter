@@ -4,7 +4,10 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -33,12 +36,12 @@ public abstract class AutoReceipter implements ApplicationListener {
     private float totalTransitionTime = -420f;  //
     private boolean changeScreen = false;
 
-    public com.github.autoreceipter.screens.BaseScreen activeScreen, nextScreen;
+    public BaseScreen activeScreen, nextScreen;
 
     //protected abstract String atlasPath();
     //protected abstract String skinPath();
     //protected abstract void styleSkin(Skin skin, TextureAtlas atlas);
-    protected abstract com.github.autoreceipter.screens.BaseScreen getFirstScreen();
+    protected abstract BaseScreen getFirstScreen();
 
 	@Override
 	public void create () {
@@ -136,7 +139,7 @@ public abstract class AutoReceipter implements ApplicationListener {
     }
 
     // This is called whenever a screen changes
-    public void switchScreens(com.github.autoreceipter.screens.BaseScreen screen) {
+    public void switchScreens(BaseScreen screen) {
         totalTransitionTime = activeScreen.defaultDuration;
 
         nextScreen = screen;

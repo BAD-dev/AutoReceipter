@@ -1,7 +1,6 @@
 package com.github.autoreceipter;
 
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.github.autoreceipter.screens.MainMenuScreen;
 
 /**
  * Created by Julian on 3/22/2016.
@@ -11,7 +10,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 public class TestApp extends AutoReceipter {
 
     @Override
-    protected BaseScreen getFirstScreen() {
+    protected com.github.autoreceipter.screens.BaseScreen getFirstScreen() {
         return new MainMenuScreen(this);
     }
 }

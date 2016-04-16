@@ -60,28 +60,26 @@ public class SkinStyles {
         skin.add("BADdev", atlas.findRegion("BADdev"), TextureRegion.class);
 
         /* TextureRegions */
-        TextureRegionDrawable scanButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("scan-button")));
-        TextureRegionDrawable scanButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("scan-button-clicked")));
-        TextureRegionDrawable fridgeButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("fridge-button")));
-        TextureRegionDrawable fridgeButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("fridge-button-clicked")));
-        TextureRegionDrawable listButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("list-button")));
-        TextureRegionDrawable listButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("list-button-clicked")));
-        //TextureRegionDrawable backButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("back-button")));
-        TextureRegionDrawable questionMarkButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button")));
-        TextureRegionDrawable questionMarkButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button")));
+        TextureRegionDrawable scanButtonRegion                  = new TextureRegionDrawable(new TextureRegion(skin.getRegion("scan-button")));
+        TextureRegionDrawable scanButtonRegionClicked           = new TextureRegionDrawable(new TextureRegion(skin.getRegion("scan-button-clicked")));
+        TextureRegionDrawable fridgeButtonRegion                = new TextureRegionDrawable(new TextureRegion(skin.getRegion("fridge-button")));
+        TextureRegionDrawable fridgeButtonRegionClicked         = new TextureRegionDrawable(new TextureRegion(skin.getRegion("fridge-button-clicked")));
+        TextureRegionDrawable listButtonRegion                  = new TextureRegionDrawable(new TextureRegion(skin.getRegion("list-button")));
+        TextureRegionDrawable listButtonRegionClicked           = new TextureRegionDrawable(new TextureRegion(skin.getRegion("list-button-clicked")));
+        //TextureRegionDrawable backButtonRegion                = new TextureRegionDrawable(new TextureRegion(skin.getRegion("back-button")));
+        TextureRegionDrawable questionMarkButtonRegion          = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button")));
+        TextureRegionDrawable questionMarkButtonRegionClicked   = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button")));
         //TextureRegionDrawable questionMarkButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button-clicked")));
-        TextureRegionDrawable BADdevReqion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("BADdev")));
+        TextureRegionDrawable BADdevReqion                      = new TextureRegionDrawable(new TextureRegion(skin.getRegion("BADdev")));
 
-
-        //TextField.TextFieldStyle searchStyle
         /* ImageButtons */
-        ImageButton.ImageButtonStyle scan_ibs = new ImageButton.ImageButtonStyle(scanButtonRegion, scanButtonRegionClicked, scanButtonRegionClicked, scanButtonRegion, scanButtonRegionClicked, scanButtonRegionClicked);
-        ImageButton.ImageButtonStyle fridge_ibs = new ImageButton.ImageButtonStyle(fridgeButtonRegion, fridgeButtonRegionClicked, fridgeButtonRegionClicked, fridgeButtonRegion, fridgeButtonRegionClicked, fridgeButtonRegionClicked);
-        ImageButton.ImageButtonStyle list_ibs = new ImageButton.ImageButtonStyle(listButtonRegion, listButtonRegionClicked, listButtonRegionClicked, listButtonRegion, listButtonRegionClicked, listButtonRegionClicked);
-        //ImageButton.ImageButtonStyle back_ibs = new ImageButton.ImageButtonStyle(backButtonRegion, backButtonRegion, backButtonRegion, backButtonRegion, backButtonRegion, backButtonRegion);
-        ImageButton.ImageButtonStyle question_ibs = new ImageButton.ImageButtonStyle(questionMarkButtonRegion, questionMarkButtonRegionClicked, questionMarkButtonRegionClicked, questionMarkButtonRegion, questionMarkButtonRegionClicked, questionMarkButtonRegionClicked);
-        //ImageTextButton.ImageTextButtonStyle scan_tbs = new ImageTextButton.ImageTextButtonStyle()
-        ImageButton.ImageButtonStyle BADdevButtonStyle = new ImageButton.ImageButtonStyle(BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion);
+        ImageButton.ImageButtonStyle scan_ibs                   = new ImageButton.ImageButtonStyle(scanButtonRegion, scanButtonRegionClicked, scanButtonRegionClicked, scanButtonRegion, scanButtonRegionClicked, scanButtonRegionClicked);
+        ImageButton.ImageButtonStyle fridge_ibs                 = new ImageButton.ImageButtonStyle(fridgeButtonRegion, fridgeButtonRegionClicked, fridgeButtonRegionClicked, fridgeButtonRegion, fridgeButtonRegionClicked, fridgeButtonRegionClicked);
+        ImageButton.ImageButtonStyle list_ibs                   = new ImageButton.ImageButtonStyle(listButtonRegion, listButtonRegionClicked, listButtonRegionClicked, listButtonRegion, listButtonRegionClicked, listButtonRegionClicked);
+        //ImageButton.ImageButtonStyle back_ibs                 = new ImageButton.ImageButtonStyle(backButtonRegion, backButtonRegion, backButtonRegion, backButtonRegion, backButtonRegion, backButtonRegion);
+        ImageButton.ImageButtonStyle question_ibs               = new ImageButton.ImageButtonStyle(questionMarkButtonRegion, questionMarkButtonRegionClicked, questionMarkButtonRegionClicked, questionMarkButtonRegion, questionMarkButtonRegionClicked, questionMarkButtonRegionClicked);
+        //ImageTextButton.ImageTextButtonStyle scan_tbs         = new ImageTextButton.ImageTextButtonStyle()
+        ImageButton.ImageButtonStyle BADdevButtonStyle          = new ImageButton.ImageButtonStyle(BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion);
 
         skin.add("scanButtonStyle", scan_ibs);
         skin.add("fridgeButtonStyle", fridge_ibs);

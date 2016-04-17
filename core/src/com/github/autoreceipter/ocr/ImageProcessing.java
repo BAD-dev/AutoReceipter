@@ -24,7 +24,7 @@ public class ImageProcessing {
 
         System.out.println("Uploading file..");
         Task task = restClient.processImage(file, settings);
-        waitAndDownloadResult(task, "scanned/test6.txt");
+        waitAndDownloadResult(task, "ScannerCapture.txt");
         convertedFile = restClient.convertedFile;
     }
 

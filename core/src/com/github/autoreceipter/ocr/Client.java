@@ -176,11 +176,23 @@ public class Client {
 
 	private byte[] readDataFromFile(String filePath) throws Exception {
 		//File file = Gdx.files.internal(filePath).file();
-		FileHandle file = Gdx.files.internal(filePath);
-		long fileLength = file.length();
+
+		File file = new File(filePath);
+
+		if(file.isDirectory()) {
+			File[] list = file.listFiles();
+			for(int x=0; x<list.length; x++)
+				System.out.println(list[x].getAbsolutePath() + " " + list[x].length());
+		}
+
+
+
+		long fileLength = 99999999;
+		if(file.exists())
+			fileLength = file.length();
 		byte[] dataBuffer = new byte[(int) fileLength];
 
-		InputStream inputStream = file.read();
+		InputStream inputStream = new FileInputStream(file);
 		try {
 
 			int offset = 0;
@@ -197,7 +209,7 @@ public class Client {
 			}
 			if (offset < dataBuffer.length) {
 				throw new IOException("Could not completely read file "
-						+ file.name());
+						+ file.getName());
 			}
 		} finally {
 			inputStream.close();

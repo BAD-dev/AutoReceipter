@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -22,11 +23,18 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
  */
 public class SkinStyles {
 
+    private Skin skin;
+    private TextureAtlas atlas;
+
     public void style(Skin skin, TextureAtlas atlas) {
+        this.skin = skin;
+        this.atlas = atlas;
+
         /* Fonts */
         BitmapFont font = new BitmapFont();
         font.getData().setScale(1, 1);
         skin.add("default", font);
+        font();
 
         BitmapFont itemNameFont = new BitmapFont();
         itemNameFont.getData().setScale(2, 2);
@@ -71,6 +79,8 @@ public class SkinStyles {
         TextureRegionDrawable questionMarkButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button")));
         //TextureRegionDrawable questionMarkButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("question-mark-button-clicked")));
         TextureRegionDrawable BADdevReqion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("BADdev")));
+        TextureRegionDrawable checkBox = new TextureRegionDrawable(new TextureRegion(skin.getRegion("checkbox")));
+        TextureRegionDrawable checkBoxChecked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("checkbox_checked")));
 
 
         //TextField.TextFieldStyle searchStyle
@@ -83,15 +93,25 @@ public class SkinStyles {
         //ImageTextButton.ImageTextButtonStyle scan_tbs = new ImageTextButton.ImageTextButtonStyle()
         ImageButton.ImageButtonStyle BADdevButtonStyle = new ImageButton.ImageButtonStyle(BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion);
 
+        // Checkbox style
+        CheckBox.CheckBoxStyle checkBoxStyle = new CheckBox.CheckBoxStyle(checkBox, checkBoxChecked, font, skin.getColor("lt-blue"));
+
         skin.add("scanButtonStyle", scan_ibs);
         skin.add("fridgeButtonStyle", fridge_ibs);
         skin.add("listButtonStyle", list_ibs);
         //skin.add("backButtonStyle", back_ibs);
         skin.add("questionMarkStyle", question_ibs);
         skin.add("BADdevButtonStyle", BADdevButtonStyle);
+        skin.add("default", checkBoxStyle);
 
         skin.add("bg_header", getBackground("main"));
         skin.add("bg_noheader", getBackground(""));
+    }
+
+    private void font() {
+        //FreeTypeFontGenerator gen = new FreeTypeFontGenerator(Gdx.files.internal(""));
+        //BitmapFont font2 = gen.generateFont(16);
+        //gen.dispose();
     }
 
     public NinePatchDrawable getBackground(String screen) {

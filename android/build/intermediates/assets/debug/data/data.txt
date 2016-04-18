@@ -1,0 +1,39 @@
+// Sample input from Test Plan
+
+[inventory]
+BEGIN
+item_name "Test Item 1"
+quantity 1
+cost "1.00"
+times_purchased 1
+last_purchased "01/01/2016"
+average_days_between_purchases 1
+has_expiration false
+notifications_enabled false
+use_default_image true
+END
+BEGIN
+item_name "Test Item 2"
+quantity 3
+cost "6.88"
+times_purchased 22
+last_purchased "03/25/2016"
+average_days_between_purchases 13
+has_expiration false
+notifications_enabled false
+use_default_image false
+image_name "Test-item-2.png"
+END
+BEGIN
+item_name "Test Item 3"
+quantity 10
+times_purchased 53
+cost "3.49"
+last_purchased "03/25/2016"
+average_days_between_purchases 31
+has_expiration true
+expiration_date "04/08/2016"
+notifications_enabled true
+notification_date "04/15/2016"
+use_default_image true
+END

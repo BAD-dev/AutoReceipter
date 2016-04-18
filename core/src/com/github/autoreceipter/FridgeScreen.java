@@ -28,6 +28,10 @@ public class FridgeScreen extends BaseScreen {
     public FridgeScreen(final AutoReceipter app) {
         super(app);
 
+        FileIO fileIO = new FileIO("data/data.txt");
+        String text = fileIO.readFile();
+        System.out.println(text);
+
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
         //final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
 

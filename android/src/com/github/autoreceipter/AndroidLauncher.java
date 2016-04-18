@@ -15,6 +15,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.jar.Manifest;
 
 public class AndroidLauncher extends AndroidApplication {
 
@@ -30,6 +31,8 @@ public class AndroidLauncher extends AndroidApplication {
 
 		initialize(new TestApp(pic), config);
 		//dispatchTakePictureIntent();
+
+		requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
 	}
 
 }

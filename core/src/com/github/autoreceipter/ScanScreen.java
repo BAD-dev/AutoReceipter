@@ -47,12 +47,11 @@ public class ScanScreen extends BaseScreen {
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
+                        System.out.println(processor.getConvertedFile().trim());
                     }
                 });
             }
         });
-
-
 
 
         table.add(scanButton);

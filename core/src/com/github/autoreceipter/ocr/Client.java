@@ -22,7 +22,6 @@ public class Client {
 	public String serverUrl = "http://cloud.ocrsdk.com";
 
 	public String convertedFile;
-
 	/*
 	 * Upload image to server and optionally append it to existing task. If
 	 * taskId is null, creates new task.
@@ -126,19 +125,32 @@ public class Client {
 
 		FileHandle file = Gdx.files.local(outputFile);
 
+		OutputStream out = file.write(false);
+
 		try {
 			byte[] data = new byte[1024];
 			int count;
 			while ((count = reader.read(data, 0, data.length)) != -1) {
-				//out.write(data, 0, count);
-				convertedFile = new String(data, StandardCharsets.UTF_8);
+				out.write(data, 0, count);
+				//String temp = new String(data, StandardCharsets.UTF_8);
+				//convertedFile += temp;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
+		} finally {
+			out.close();
 		}
-		convertedFile = convertedFile.trim();
 
-		file.writeString(convertedFile, false);
+
+		convertedFile = "";
+		BufferedReader stream = new BufferedReader(file.reader());
+		String temp;
+
+		while((temp = stream.readLine()) != null) {
+			convertedFile += temp;
+		}
+
+		file.delete();
 	}
 
 	public Task deleteTask(String taskId) throws Exception {
@@ -178,14 +190,6 @@ public class Client {
 		//File file = Gdx.files.internal(filePath).file();
 
 		File file = new File(filePath);
-
-		if(file.isDirectory()) {
-			File[] list = file.listFiles();
-			for(int x=0; x<list.length; x++)
-				System.out.println(list[x].getAbsolutePath() + " " + list[x].length());
-		}
-
-
 
 		long fileLength = 99999999;
 		if(file.exists())

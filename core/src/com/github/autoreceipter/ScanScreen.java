@@ -20,6 +20,7 @@ public class ScanScreen extends BaseScreen {
         super(app);
 
         //final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
+<<<<<<< HEAD
 
         Label label = new Label("Scan Screen", app.skin);
 
@@ -57,6 +58,8 @@ public class ScanScreen extends BaseScreen {
         table.add(scanButton);
         //table.add(backButton);
 
+=======
+>>>>>>> refs/remotes/origin/master
         /*backButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -64,6 +67,19 @@ public class ScanScreen extends BaseScreen {
                 backButton.setChecked(false);
             }
         });*/
+<<<<<<< HEAD
+=======
+
+
+        Label label = new Label("Scan Screen", app.skin);
+
+        table.defaults().pad(6f);
+        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
+        table.add(label).row();
+        //table.add(backButton);
+
+
+>>>>>>> refs/remotes/origin/master
     }
 
 

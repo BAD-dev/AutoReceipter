@@ -45,8 +45,8 @@ public abstract class AutoReceipter implements ApplicationListener {
 
 	@Override
 	public void create () {
-		width = 810;//Gdx.graphics.getWidth();
-        height = 1440;//Gdx.graphics.getHeight();
+        width = 810;//Gdx.graphics.getWidth();//
+        height = 1440;//Gdx.graphics.getHeight();//
         System.out.println(width +" "+ height);
 
         stage = new Stage(new StretchViewport(width, height));

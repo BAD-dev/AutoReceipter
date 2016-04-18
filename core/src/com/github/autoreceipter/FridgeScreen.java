@@ -19,6 +19,8 @@ public class FridgeScreen extends BaseScreen {
 
     // All fridge items
     private ArrayMap<Integer, FridgeItem> items;
+
+    // Fridge items currently displayed from search filter
     private ArrayMap<Integer, FridgeItem> itemsDisplayed;
 
     private Table scrollTable;
@@ -72,13 +74,17 @@ public class FridgeScreen extends BaseScreen {
         };
     }
 
+    /*
+     * Create 30 FridgeItmes and place into fridge list
+     */
     private void createFridgeInventory() {
         if(items.size != 0)
             items.clear();
 
         for(int i = 0; i < 30; i++) {
+            String name = "" + (i+1);
             Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
-            FridgeItem o = new FridgeItem(i, "Item "+i, c, app.skin);
+            FridgeItem o = new FridgeItem(name, "Item "+i, c, app.skin);
             items.put(i, o);
         }
     }
@@ -87,6 +93,9 @@ public class FridgeScreen extends BaseScreen {
 
     }
 
+    /*
+     * Places all FridgeItems from our list into Scrollpane
+     */
     private void arrangeTable() {
         scrollTable.clear();
 
@@ -120,7 +129,7 @@ public class FridgeScreen extends BaseScreen {
 
             while(itemCount < maxItemsPerLine) {
                 //addWidget((i * maxItemsPerLine) + itemCount);
-                scrollTable.add(itemsDisplayed.getValueAt((i * maxItemsPerLine) + itemCount).widget).expandX().padLeft(35f).left();
+                scrollTable.add(itemsDisplayed.getValueAt((i * maxItemsPerLine) + itemCount).widget).expandX().prefHeight(300f).padLeft(35f).left();
                 itemCount++;
             }
 

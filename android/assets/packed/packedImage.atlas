@@ -6,16 +6,37 @@ filter: Nearest,Nearest
 repeat: none
 BADdev
   rotate: false
-  xy: 2, 732
+  xy: 630, 798
   size: 180, 180
   orig: 180, 180
   offset: 0, 0
   index: -1
 back-button
   rotate: false
-  xy: 140, 914
+  xy: 812, 874
   size: 201, 104
   orig: 201, 104
+  offset: 0, 0
+  index: -1
+checkbox
+  rotate: false
+  xy: 992, 844
+  size: 28, 28
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
+checkbox_checked
+  rotate: false
+  xy: 992, 814
+  size: 28, 28
+  orig: 28, 28
+  offset: 0, 0
+  index: -1
+fridge-button2
+  rotate: false
+  xy: 2, 784
+  size: 626, 194
+  orig: 626, 194
   offset: 0, 0
   index: -1
 fridge-button2-clicked
@@ -25,18 +46,11 @@ fridge-button2-clicked
   orig: 628, 193
   offset: 0, 0
   index: -1
-fridge-button3
+list-button2
   rotate: false
-  xy: 433, 863
-  size: 456, 155
-  orig: 456, 155
-  offset: 0, 0
-  index: -1
-fridge-button3-clicked
-  rotate: false
-  xy: 184, 706
-  size: 456, 155
-  orig: 456, 155
+  xy: 2, 588
+  size: 626, 194
+  orig: 626, 194
   offset: 0, 0
   index: -1
 list-button2-clicked
@@ -46,53 +60,32 @@ list-button2-clicked
   orig: 628, 193
   offset: 0, 0
   index: -1
-list-button3
-  rotate: false
-  xy: 2, 549
-  size: 456, 155
-  orig: 456, 155
-  offset: 0, 0
-  index: -1
-list-button3-clicked
-  rotate: false
-  xy: 460, 549
-  size: 456, 155
-  orig: 456, 155
-  offset: 0, 0
-  index: -1
 question-mark-button
   rotate: false
-  xy: 343, 908
+  xy: 812, 762
   size: 88, 110
   orig: 88, 110
   offset: 0, 0
   index: -1
 question-mark-button-clicked
   rotate: false
-  xy: 50, 915
+  xy: 902, 769
   size: 88, 103
   orig: 88, 103
   offset: 0, 0
   index: -1
 question-mark-button2
   rotate: false
-  xy: 2, 945
+  xy: 902, 694
   size: 46, 73
   orig: 46, 73
   offset: 0, 0
   index: -1
-scan-button3
+scan-button2
   rotate: false
   xy: 2, 392
-  size: 456, 155
-  orig: 456, 155
-  offset: 0, 0
-  index: -1
-scan-button3-clicked
-  rotate: false
-  xy: 460, 392
-  size: 456, 155
-  orig: 456, 155
+  size: 626, 194
+  orig: 626, 194
   offset: 0, 0
   index: -1
 
@@ -101,31 +94,52 @@ size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-fridge-button2
+fridge-button3
   rotate: false
-  xy: 2, 394
-  size: 626, 194
-  orig: 626, 194
+  xy: 2, 630
+  size: 456, 155
+  orig: 456, 155
   offset: 0, 0
   index: -1
-list-button2
+fridge-button3-clicked
   rotate: false
-  xy: 2, 198
-  size: 626, 194
-  orig: 626, 194
+  xy: 2, 473
+  size: 456, 155
+  orig: 456, 155
   offset: 0, 0
   index: -1
-scan-button2
+list-button3
   rotate: false
-  xy: 2, 2
-  size: 626, 194
-  orig: 626, 194
+  xy: 2, 316
+  size: 456, 155
+  orig: 456, 155
+  offset: 0, 0
+  index: -1
+list-button3-clicked
+  rotate: false
+  xy: 2, 159
+  size: 456, 155
+  orig: 456, 155
   offset: 0, 0
   index: -1
 scan-button2-clicked
   rotate: false
-  xy: 2, 590
+  xy: 2, 787
   size: 628, 193
   orig: 628, 193
+  offset: 0, 0
+  index: -1
+scan-button3
+  rotate: false
+  xy: 2, 2
+  size: 456, 155
+  orig: 456, 155
+  offset: 0, 0
+  index: -1
+scan-button3-clicked
+  rotate: false
+  xy: 460, 630
+  size: 456, 155
+  orig: 456, 155
   offset: 0, 0
   index: -1

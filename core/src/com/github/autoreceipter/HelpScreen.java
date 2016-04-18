@@ -17,6 +17,8 @@ public class HelpScreen extends BaseScreen {
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
         table.add(label).row();
 
+        // Need to put some type of help section as per requirements
+
     }
 
     @Override

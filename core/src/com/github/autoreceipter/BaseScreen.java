@@ -25,10 +25,12 @@ public abstract class BaseScreen extends Group {
     public static float padSize, defaultDuration;
     //public float screenDuration;
 
+    // Tells app which screen to switch to
     public abstract void onBackPress();
 
-    public enum transitionDir {UP, DOWN, LEFT, RIGHT}
+    // Each screen has a direction in which the screen moves upon switching screens
     public abstract transitionDir getDirection(BaseScreen nextScreen);
+    public enum transitionDir {UP, DOWN, LEFT, RIGHT}
 
     public BaseScreen(AutoReceipter app) {
         this.app = app;
@@ -42,6 +44,7 @@ public abstract class BaseScreen extends Group {
         this.addActor(table);
     }
 
+    // This is used when getting a background image
     public NinePatch getNinePatch(String fName) {
         final Texture t = new Texture(Gdx.files.internal(fName));
         return new NinePatch( new TextureRegion(t, 1, 1 , t.getWidth() - 2, t.getHeight() - 2), 10, 10, 10, 10);
@@ -51,7 +54,7 @@ public abstract class BaseScreen extends Group {
         return this;
     }
 
-    // Moves the screen left
+    // Moves the screen based on passed in direction
     public void screenTransition(transitionDir d) {
         float x, y;
         float duration = .333f;

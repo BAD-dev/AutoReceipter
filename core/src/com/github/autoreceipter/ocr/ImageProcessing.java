@@ -22,7 +22,7 @@ public class ImageProcessing {
         settings.setLanguage("English");
         settings.setOutputFormat(ProcessingSettings.OutputFormat.txt);
 
-        System.out.println("Uploading file..");
+        System.out.println("Uploading file:" +file);
         Task task = restClient.processImage(file, settings);
         waitAndDownloadResult(task, "ScannerCapture.txt");
         convertedFile = restClient.convertedFile;

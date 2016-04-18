@@ -9,25 +9,48 @@ import com.badlogic.gdx.files.FileHandle;
 public class FileIO {
 
     private static FileHandle file;
+    public enum STORAGE {LOCAL, EXTERNAL}
 
     public FileIO(String fpath) {
         if(Gdx.files.isLocalStorageAvailable()) {
             file = Gdx.files.local(fpath);
             System.out.println("Local path: " + file.path());
             if(!file.exists())
-                file.writeString("Local storage test", false);
+                file.writeString("", false);
         }
 
         else if(Gdx.files.isExternalStorageAvailable()) {
             System.out.println("External path: " + Gdx.files.getExternalStoragePath());
             file = Gdx.files.external(fpath);
             if(!file.exists())
-                file.writeString("External storage test", false);
+                file.writeString("", false);
         }
 
         else {
             file = null;
-            System.out.println("File not found!");
+            System.out.println("No storage available!");
+        }
+    }
+
+    // Same constructor except with storage type defined. For testing purposes
+    public FileIO(String fpath, STORAGE storage) {
+        if(storage == STORAGE.LOCAL && Gdx.files.isLocalStorageAvailable()) {
+            file = Gdx.files.local(fpath);
+            System.out.println("Local path: " + file.path());
+            if(!file.exists())
+                file.writeString("", false);
+        }
+
+        else if(storage == STORAGE.EXTERNAL && Gdx.files.isExternalStorageAvailable()) {
+            System.out.println("External path: " + Gdx.files.getExternalStoragePath());
+            file = Gdx.files.external(fpath);
+            if(!file.exists())
+                file.writeString("", false);
+        }
+
+        else {
+            file = null;
+            System.out.println("No storage available!");
         }
     }
 

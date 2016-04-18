@@ -21,6 +21,7 @@ public class ScanScreen extends BaseScreen {
 
         //final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
 
+        final FileIO fileIO = new FileIO("data/convertedText.txt", FileIO.STORAGE.EXTERNAL);
 
         Label label = new Label("Scan Screen", app.skin);
 
@@ -49,6 +50,7 @@ public class ScanScreen extends BaseScreen {
                             e.printStackTrace();
                         }
                         System.out.println(processor.getConvertedFile().trim());
+                        fileIO.writeFile(processor.getConvertedFile().trim(), false);
                     }
                 });
             }

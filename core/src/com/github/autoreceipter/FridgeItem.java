@@ -123,8 +123,7 @@ public class FridgeItem extends Widget {
 
         widget.add(stats);
 
-        widget.debug();
-        stats.debug();
+
     }
 
     // Sets dimensions for the this widget

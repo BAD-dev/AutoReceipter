@@ -76,7 +76,6 @@ public class FridgeScreen extends BaseScreen {
         arrangeTable();
 
         table.add(scrollPane).fill().expand();
-        table.debug();
 
         InputListener stopTouchDown = new InputListener() {
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {

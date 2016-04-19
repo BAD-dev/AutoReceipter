@@ -77,9 +77,9 @@ public class FridgeItem extends Widget {
         this.description = new Label(name, skin);
         this.cost = cost;
         this.image = foods.get("default");
-
         this.color = color;
         this.quantity = quantity;
+        incrementQuantity(quantity);
         this.lastPurchased = new Date();
         this.skin = skin;
 

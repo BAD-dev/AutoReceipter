@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
 import java.util.ArrayList;
 
@@ -22,15 +23,19 @@ public class ManualItemInsertionScreen extends BaseScreen {
 
         list = listToAddTo;
 
-        final TextField field = new TextField("NAME", app.skin);
-        table.add(field).row();
+        table.defaults().pad(6f);
+        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
+
+
+       // final TextField field = new TextField("NAME", app.skin);
+       // table.add(field).row();
 
         ImageButton accept = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
         accept.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
-                FridgeItem o = new FridgeItem(field.getText(), "User Made", c, app.skin);
+                FridgeItem o = new FridgeItem("UserNameInput", "User Made", c, app.skin);
                 listToAddTo.add(o);
 
                 if(screenToSwap instanceof ShoppingScreen)
@@ -41,6 +46,8 @@ public class ManualItemInsertionScreen extends BaseScreen {
                     app.switchScreens(new MainMenuScreen(app));
             }
         });
+
+        table.add(accept);
 
     }
 

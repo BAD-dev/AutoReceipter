@@ -39,4 +39,35 @@ public class ListItem extends FridgeItem {
 
         widget.add(checkBox).padLeft(20).right();
     }
+
+    public ListItem(FridgeItem item, Skin skin) {
+        super(item.getItemName(), item.getDescription().getText().toString(), item.getColor(), skin);
+
+        checkBox = new CheckBox("", skin);
+        checkBox.getCells().get(0).size(100, 100);
+        checkBox.setChecked(true);
+        checkBox.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if(checked)
+                    checked = false;
+                else
+                    checked = true;
+
+                checkBox.setChecked(checked);
+            }
+        });
+
+        widget.add(checkBox).padLeft(20).right();
+    }
+
+    public ListItem visibilityCheckbox(boolean b) {
+        checkBox.setVisible(b);
+        return this;
+    }
+
+    public void setChecked(boolean b) {
+        checkBox.setChecked(b);
+        checked = b;
+    }
 }

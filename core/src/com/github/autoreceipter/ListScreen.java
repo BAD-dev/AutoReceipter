@@ -37,7 +37,6 @@ public class ListScreen extends BaseScreen {
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
         table.add(label).row();
 
-        table.debug();
 
         scrollTable = new Table();
         final ScrollPane scrollPane = new ScrollPane(scrollTable);
@@ -62,9 +61,8 @@ public class ListScreen extends BaseScreen {
             }
         });
 
-        scrollTable.add(fridgeButton);
-
         table.add(scrollPane);
+        table.add(fridgeButton);
     }
 
     public void generateListItems(ArrayList<FridgeItem> items) {

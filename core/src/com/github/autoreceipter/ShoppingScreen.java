@@ -2,6 +2,9 @@ package com.github.autoreceipter;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.ScrollPane;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
@@ -13,7 +16,11 @@ import java.util.ArrayList;
  */
 public class ShoppingScreen extends BaseScreen {
 
-    ArrayList<FridgeItem> items;
+    static ArrayList<FridgeItem> items;
+    ArrayList<ListItem> listItems;
+    Table scrollTable;
+
+    boolean deletionMode = false;
 
     public ShoppingScreen(final AutoReceipter app) {
         super(app);
@@ -24,10 +31,27 @@ public class ShoppingScreen extends BaseScreen {
         ImageButton manual = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
         ImageButton automatic = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
 
-        table.add(manual).padLeft(20);
-        table.add(automatic).row();
+        Table buttonTable = new Table();
 
-        items = new ArrayList<FridgeItem>();
+        buttonTable.add(manual).left().padLeft(100);
+        buttonTable.add(new Label("Manual Input", app.skin)).left();
+        buttonTable.add().padLeft(200).padRight(200);
+        buttonTable.add(new Label("Automatic", app.skin)).right();
+        buttonTable.add(automatic).right().padRight(100);
+
+        table.add(buttonTable).row();
+
+        scrollTable = new Table();
+        final ScrollPane scrollPane = new ScrollPane(scrollTable);
+
+        scrollPane.setScrollingDisabled(true, false);
+
+        table.add(scrollPane).left().expand().fill();
+
+        if (items == null)
+            items = new ArrayList<FridgeItem>();
+        else
+            addItemsToTable(items);
 
         final BaseScreen screen = this;
         manual.addListener(new ClickListener() {
@@ -44,6 +68,38 @@ public class ShoppingScreen extends BaseScreen {
             }
         });
 
+        table.row();
+
+        if (listItems != null && listItems.size() > 0) {
+            Table forDeletion = new Table();
+            ImageButton deletion = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
+            forDeletion.add(deletion);
+            forDeletion.add(new Label("Deletion", app.skin)).left();
+            table.add(forDeletion);
+
+            deletion.addListener(new ClickListener() {
+                @Override
+                public void clicked(InputEvent event, float x, float y) {
+                    if (!deletionMode) {
+                        for (int i = 0; i < listItems.size(); i++) {
+                            listItems.get(i).visibilityCheckbox(true).setChecked(false);
+
+                        }
+                        deletionMode = true;
+                    } else {
+                        for (int i = 0; i < listItems.size(); i++) {
+                            if (listItems.get(i).checked) {
+                                items.remove(i);
+                            }
+                        }
+
+                        app.switchScreens(new ShoppingScreen(app, items));
+                        deletionMode = false;
+                    }
+                }
+            });
+         }
+
     }
 
     public ShoppingScreen(final AutoReceipter app,  ArrayList<FridgeItem> createdList) {
@@ -52,10 +108,27 @@ public class ShoppingScreen extends BaseScreen {
         table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
 
-        TextButton manual = new TextButton("Manual", app.skin);
-        table.add(manual).row();
+        ImageButton manual = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton automatic = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
 
-        items = new ArrayList<FridgeItem>();
+        Table buttonTable = new Table();
+
+        buttonTable.add(manual).left().padLeft(100);
+        buttonTable.add(new Label("Manual Input", app.skin)).left();
+        buttonTable.add().padLeft(200).padRight(200);
+        buttonTable.add(new Label("Automatic", app.skin)).right();
+        buttonTable.add(automatic).right().padRight(100);
+
+        table.add(buttonTable).row();
+
+        items = createdList;
+
+        scrollTable = new Table();
+        final ScrollPane scrollPane = new ScrollPane(scrollTable);
+
+        scrollPane.setScrollingDisabled(true, false);
+
+        table.add(scrollPane).left().expand().fill().row();
 
         final BaseScreen screen = this;
         manual.addListener(new ClickListener() {
@@ -67,11 +140,47 @@ public class ShoppingScreen extends BaseScreen {
 
         addItemsToTable(createdList);
 
+        Table forDeletion = new Table();
+        ImageButton deletion = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
+        forDeletion.add(deletion);
+        forDeletion.add(new Label("Deletion", app.skin)).left();
+        table.add(forDeletion);
+
+        deletion.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                if (!deletionMode) {
+                    for (int i = 0; i < listItems.size(); i++) {
+                        listItems.get(i).visibilityCheckbox(true).setChecked(false);
+
+                    }
+                    deletionMode = true;
+                } else {
+                    for (int i = 0; i < listItems.size(); i++) {
+                        if (listItems.get(i).checked) {
+                            items.remove(i);
+                        }
+                    }
+
+                    app.switchScreens(new ShoppingScreen(app, items));
+                    deletionMode = false;
+                }
+            }
+        });
     }
 
     public void addItemsToTable(ArrayList<FridgeItem> list) {
+        if(listItems == null)
+            listItems = new ArrayList<ListItem>();
+        else
+            listItems.clear();
+
+
+        FridgeItem.setDimensions(app.width, app.height);
         for(int x=0; x<list.size(); x++) {
-            table.add(list.get(x).widget);
+            ListItem itm = new ListItem(list.get(x), app.skin).visibilityCheckbox(false);
+            listItems.add(itm);
+            scrollTable.add(itm.widget).width(app.width).left().row();
         }
     }
 
@@ -88,6 +197,6 @@ public class ShoppingScreen extends BaseScreen {
 
     @Override
     public transitionDir getDirection(BaseScreen nextScreen) {
-        return transitionDir.DOWN;
+        return transitionDir.FADE;
     }
 }

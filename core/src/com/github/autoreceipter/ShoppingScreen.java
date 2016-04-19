@@ -125,6 +125,7 @@ public class ShoppingScreen extends BaseScreen {
 
         scrollTable = new Table();
         final ScrollPane scrollPane = new ScrollPane(scrollTable);
+        scrollTable.debug();
 
         scrollPane.setScrollingDisabled(true, false);
 
@@ -167,6 +168,8 @@ public class ShoppingScreen extends BaseScreen {
                 }
             }
         });
+
+        table.debug();
     }
 
     public void addItemsToTable(ArrayList<FridgeItem> list) {

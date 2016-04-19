@@ -15,24 +15,13 @@ import com.github.autoreceipter.ocr.ImageProcessing;
 /**
  * Created by Julian on 4/16/2016.
  */
-public class ListItem extends Widget {
+public class ListItem extends FridgeItem {
 
-    public Table widget;
-    public Table stats;
-    public Color color;
-    public Skin skin;
     public CheckBox checkBox;
     public boolean checked = true;
-    public String name;
 
-    public ListItem(String name, Color color, Skin skin) {
-        //super(name, color, skin);
-        this.widget = new Table();
-        this.color = color;
-        this.skin = skin;
-
-        this.name = name;
-        widget.defaults();
+    public ListItem(String name, double cost, int quantity, Color color, Skin skin) {
+        super(name, cost, quantity, color, skin);
 
         checkBox = new CheckBox("", skin);
         checkBox.getCells().get(0).size(100, 100);
@@ -54,9 +43,7 @@ public class ListItem extends Widget {
     }
 
     public ListItem(FridgeItem item, Skin skin) {
-        //super(item.getItemName(), item.getDescription().getText().toString(), item.getColor(), skin);
-        this.widget = new Table();
-        widget.defaults();
+        super(item.getItemName(), item.getCost(), item.totalQuantity, item.getColor(), skin);
 
         checkBox = new CheckBox("", skin);
         checkBox.getCells().get(0).size(100, 100);

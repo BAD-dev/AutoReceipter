@@ -10,6 +10,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import com.badlogic.gdx.utils.ArrayMap;
 
+import java.util.ArrayList;
+
 /**
  * Created by Julian on 3/22/2016.
  *
@@ -18,10 +20,10 @@ import com.badlogic.gdx.utils.ArrayMap;
 public class FridgeScreen extends BaseScreen {
 
     // All fridge items
-    private ArrayMap<Integer, FridgeItem> items;
+    //private ArrayMap<Integer, FridgeItem> items;
 
     // Fridge items currently displayed from search filter
-    private ArrayMap<Integer, FridgeItem> itemsDisplayed;
+    private ArrayList<FridgeItem> itemsDisplayed;
 
     private Table scrollTable;
 
@@ -32,8 +34,9 @@ public class FridgeScreen extends BaseScreen {
         String text = fileIO.readFile();
         System.out.println(text);
 
+        table.reset();
+        table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
-        //final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
 
         Label label = new Label("Fridge Screen", app.skin);
         scrollTable = new Table();
@@ -44,8 +47,8 @@ public class FridgeScreen extends BaseScreen {
 
         FridgeItem.setDimensions(app.width, app.height);
 
-        items = new ArrayMap<Integer, FridgeItem>();
-        itemsDisplayed = new ArrayMap<Integer, FridgeItem>();
+        app.items = new ArrayList<FridgeItem>();
+        itemsDisplayed = new ArrayList<FridgeItem>();
         createFridgeInventory();
 
         Table container = new Table();
@@ -82,14 +85,14 @@ public class FridgeScreen extends BaseScreen {
      * Create 30 FridgeItmes and place into fridge list
      */
     private void createFridgeInventory() {
-        if(items.size != 0)
-            items.clear();
+        if(!app.items.isEmpty())
+            app.items.clear();
 
         for(int i = 0; i < 30; i++) {
             String name = "" + (i+1);
             Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
             FridgeItem o = new FridgeItem(name, "Item "+i, c, app.skin);
-            items.put(i, o);
+            app.items.add(o);
         }
     }
 
@@ -105,7 +108,8 @@ public class FridgeScreen extends BaseScreen {
 
         //checkFilter(search.get)
         itemsDisplayed.clear();
-        itemsDisplayed.putAll(items);
+        for(FridgeItem f : app.items)
+            itemsDisplayed.add(f);
 
         int sizeX = app.skin.getRegion("BADdev").getRegionWidth();
         int sizeY = app.skin.getRegion("BADdev").getRegionHeight();
@@ -114,8 +118,8 @@ public class FridgeScreen extends BaseScreen {
 //        maxItemsPerLine -= (int) (20f * maxItemsPerLine / sizeX) + 1;
         int maxItemsPerLine = 1;
 
-        int totalLines = itemsDisplayed.size / maxItemsPerLine;
-        int outOfBounds = itemsDisplayed.size % maxItemsPerLine;
+        int totalLines = itemsDisplayed.size() / maxItemsPerLine;
+        int outOfBounds = itemsDisplayed.size() % maxItemsPerLine;
 
         int itemCount = 0;
         for(int i = 0; i < totalLines; i++) {
@@ -133,8 +137,7 @@ public class FridgeScreen extends BaseScreen {
 
             while(itemCount < maxItemsPerLine) {
                 //addWidget((i * maxItemsPerLine) + itemCount);
-                scrollTable.add(itemsDisplayed.getValueAt((i * maxItemsPerLine) + itemCount).widget).expandX().prefHeight(300f).padLeft(35f).left();
-                itemCount++;
+                scrollTable.add(itemsDisplayed.get(i + itemCount++).widget).expandX().prefHeight(300f).padLeft(35f).left();
             }
 
             scrollTable.row();
@@ -152,17 +155,17 @@ public class FridgeScreen extends BaseScreen {
     }
 
     private final void addText(int i) {
-        scrollTable.add(itemsDisplayed.getValueAt(i).getDescription()).center();
+        scrollTable.add(itemsDisplayed.get(i).getDescription()).center();
     }
 
     public final void addWidget(int i) {
-        FridgeItem current = itemsDisplayed.getValueAt(i);
+        FridgeItem current = itemsDisplayed.get(i);
 //        float x = app.skin.getRegion("BADdev").getRegionWidth();
 //        float y = app.skin.getRegion("BADdev").getRegionHeight();
         float x = current.getImage().getWidth();
         float y = current.getImage().getHeight();
 
-        scrollTable.add(itemsDisplayed.getValueAt(i).getImage())
+        scrollTable.add(itemsDisplayed.get(i).getImage())
                 .minHeight(x)
                 .minWidth(y)
                 .spaceBottom(20f)

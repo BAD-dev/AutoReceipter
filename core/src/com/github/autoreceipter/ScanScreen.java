@@ -27,45 +27,26 @@ public class ScanScreen extends BaseScreen {
 
         table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
-        table.add(label);
+        //table.add(label);
         table.row();
 
-        final ImageButton scanButton = new ImageButton(app.skin.get("scanButtonStyle", ImageButton.ImageButtonStyle.class));
+        final ImageButton decodeButton = new ImageButton(app.skin.get("decodeButtonStyle", ImageButton.ImageButtonStyle.class));
+        table.add(decodeButton);
 
-        scanButton.addListener(new ClickListener() {
+        decodeButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                TestApp.taker.TakePicture();
-                scanButton.remove();
-                ImageButton decodeButton = new ImageButton(app.skin.get("fridgeButtonStyle", ImageButton.ImageButtonStyle.class));
-                table.add(decodeButton);
-
-                decodeButton.addListener(new ClickListener() {
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        ImageProcessing processor = new ImageProcessing();
-                        try {
-                            processor.ProcessFile(TestApp.taker.scannedImagePath);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        System.out.println(processor.getConvertedFile().trim());
-                        fileIO.writeFile(processor.getConvertedFile().trim(), false);
-                    }
-                });
+                ImageProcessing processor = new ImageProcessing();
+                try {
+                    processor.ProcessFile(TestApp.taker.scannedImagePath);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                System.out.println(processor.getConvertedFile().trim());
+                fileIO.writeFile(processor.getConvertedFile().trim(), false);
+                app.switchScreens(new FridgeScreen(app));
             }
         });
-
-
-        table.add(scanButton);
-        //table.add(backButton);
-
-        table.defaults().pad(6f);
-        table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
-        table.add(label).row();
-        //table.add(backButton);
-
-
     }
 
     @Override

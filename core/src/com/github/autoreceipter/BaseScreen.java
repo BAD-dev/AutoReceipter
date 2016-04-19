@@ -6,9 +6,12 @@ import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.badlogic.gdx.scenes.scene2d.actions.Actions;
+import com.badlogic.gdx.scenes.scene2d.actions.AlphaAction;
 import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
+
+import javafx.animation.FadeTransition;
 
 /**
  * Created by Julian on 3/22/2016.
@@ -31,7 +34,7 @@ public abstract class BaseScreen extends Group {
 
     // Each screen has a direction in which the screen moves upon switching screens
     public abstract transitionDir getDirection(BaseScreen nextScreen);
-    public enum transitionDir {UP, DOWN, LEFT, RIGHT}
+    public enum transitionDir {UP, DOWN, LEFT, RIGHT, FADE}
 
     public BaseScreen(AutoReceipter app) {
         this.app = app;
@@ -59,30 +62,38 @@ public abstract class BaseScreen extends Group {
     public void screenTransition(transitionDir d) {
         float x, y;
         float duration = .333f;
-        //float x = -app.widgetWidth;
+
         MoveToAction action;
+        AlphaAction fadeOut;
 
         if(d == transitionDir.LEFT) {
             x = -app.width;
             action = Actions.moveTo(x, 0f, duration);
+            addAction(action);
         }
         else if(d == transitionDir.RIGHT) {
             x = app.width;
             action = Actions.moveTo(x, 0f, duration);
+            addAction(action);
         }
 
         else if (d == transitionDir.UP) {
             y = app.height;
             action = Actions.moveTo(0f, y, duration);
+            addAction(action);
         }
 
-        // down
-        else {
+        else if(d == transitionDir.DOWN) {
             y = -app.height;
             action = Actions.moveTo(0f, y, duration);
+            addAction(action);
         }
 
-        addAction(action);
+        // none
+        else{
+            fadeOut = Actions.fadeOut(0f);
+            addAction(fadeOut);
+        }
     }
 
     public void hide() { }

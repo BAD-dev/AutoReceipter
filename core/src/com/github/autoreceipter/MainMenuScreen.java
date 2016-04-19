@@ -26,6 +26,7 @@ public class MainMenuScreen extends BaseScreen {
         scanButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
+                TestApp.taker.TakePicture();
                 app.switchScreens(new ScanScreen(app));
                 scanButton.setChecked(false);
             }

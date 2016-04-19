@@ -4,10 +4,7 @@ import com.badlogic.gdx.Application;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.InputMultiplexer;
-import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -17,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.utils.viewport.StretchViewport;
+
+import java.util.ArrayList;
 
 /**
  * Created by Julian on 3/20/2016.
@@ -34,13 +33,12 @@ public abstract class AutoReceipter implements ApplicationListener {
     public static InputMultiplexer inputs = new InputMultiplexer(); // for multiple inputs
     public float transitionDuration = .333f;    // duration of transitions
     private float totalTransitionTime = -420f;  //
-    private boolean changeScreen = false;
+    public static boolean finishedTransition;
+    public FileIO fileIO;
+    public static ArrayList<FridgeItem> items;
 
     public BaseScreen activeScreen, nextScreen;
 
-    //protected abstract String atlasPath();
-    //protected abstract String skinPath();
-    //protected abstract void styleSkin(Skin skin, TextureAtlas atlas);
     protected abstract BaseScreen getFirstScreen();
 
 	@Override
@@ -55,11 +53,6 @@ public abstract class AutoReceipter implements ApplicationListener {
         atlas = new TextureAtlas("packed/packedImage.atlas");
         skin = new Skin(atlas);
         new SkinStyles().style(skin, atlas);
-
-        /*String skinPath = skinPath();
-        if(skinPath != null)
-            skin.load(Gdx.files.internal(skinPath));
-        styleSkin(skin, atlas);*/
 
         Gdx.input.setInputProcessor(stage);
 
@@ -112,19 +105,9 @@ public abstract class AutoReceipter implements ApplicationListener {
                 activeScreen = nextScreen;
                 activeScreen.setTouchable(Touchable.enabled);
                 activeScreen.setPosition(0f, 0f);
-                //nextScreen = null;
+                finishedTransition = true;
             }
         }
-
-        /*if(changeScreen) {
-            activeScreen.hide();
-            activeScreen.remove();
-            activeScreen = nextScreen;
-            activeScreen.setTouchable(Touchable.enabled);
-            activeScreen.setPosition(0f, 0f);
-            nextScreen = null;
-            changeScreen = false;
-        }*/
 
         color = new Color(Color.BLACK);
         Gdx.gl.glClearColor(color.r, color.g, color.b, color.a);
@@ -140,6 +123,7 @@ public abstract class AutoReceipter implements ApplicationListener {
 
     // This is called whenever a screen changes
     public void switchScreens(BaseScreen screen) {
+        finishedTransition = false;
         totalTransitionTime = activeScreen.defaultDuration;
 
         nextScreen = screen;
@@ -149,11 +133,8 @@ public abstract class AutoReceipter implements ApplicationListener {
 
         if (activeScreen != null) {
             activeScreen.screenTransition(activeScreen.getDirection(nextScreen));
-            //changeScreen = true;
             activeScreen.setTouchable(Touchable.disabled);
-            //activeScreen.toBack();
             activeScreen.toFront();
-            //activeScreen.hide();
         }
     }
 

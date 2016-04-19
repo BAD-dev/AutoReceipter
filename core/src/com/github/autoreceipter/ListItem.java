@@ -19,8 +19,8 @@ public class ListItem extends FridgeItem {
     public CheckBox checkBox;
     public boolean checked = true;
 
-    public ListItem(String name, String description, Color color, Skin skin) {
-        super(name, description, color, skin);
+    public ListItem(String name, Color color, Skin skin) {
+        //super(name, color, skin);
 
         checkBox = new CheckBox("", skin);
         checkBox.getCells().get(0).size(100, 100);

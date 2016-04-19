@@ -1,0 +1,7 @@
+[inventory]
+item_name "Apples"
+quantity 3
+cost 1.50
+total_quantity 16
+last_purchased 10/19/2015
+END

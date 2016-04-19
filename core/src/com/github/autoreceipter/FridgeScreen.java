@@ -49,9 +49,12 @@ public class FridgeScreen extends BaseScreen {
         FridgeItem.setDimensions(app.width, app.height);
 
         // This will be removed when scanning works
-        app.items = new ArrayList<FridgeItem>();
+        if(app.items.isEmpty()) {
+            app.items = new ArrayList<FridgeItem>();
+            createFridgeInventory();
+        }
+
         itemsDisplayed = new ArrayList<FridgeItem>();
-        createFridgeInventory();
 
         Table container = new Table();
 
@@ -87,13 +90,10 @@ public class FridgeScreen extends BaseScreen {
      * Create 30 FridgeItmes and place into fridge list
      */
     private void createFridgeInventory() {
-        if(!app.items.isEmpty())
-            app.items.clear();
-
         for(int i = 0; i < 30; i++) {
             String name = "" + (i+1);
             Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
-            FridgeItem o = new FridgeItem(name, "Item "+i, c, app.skin);
+            FridgeItem o = new FridgeItem(name, 0.00, 1, c, app.skin);
             app.items.add(o);
         }
     }

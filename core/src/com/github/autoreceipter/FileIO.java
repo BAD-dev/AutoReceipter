@@ -3,6 +3,8 @@ package com.github.autoreceipter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
@@ -13,7 +15,7 @@ import java.util.Scanner;
 public class FileIO {
 
     private static FileHandle file;
-    public enum STORAGE {LOCAL, EXTERNAL}
+    public enum STORAGE {LOCAL, EXTERNAL, INTERNAL}
 
     public FileIO(String fpath) {
         if(Gdx.files.isLocalStorageAvailable()) {
@@ -52,6 +54,12 @@ public class FileIO {
                 file.writeString("", false);
         }
 
+        else if(storage == STORAGE.INTERNAL) {
+            file = Gdx.files.internal(fpath);
+            if(!file.exists())
+                file.writeString("", false);
+        }
+
         else {
             file = null;
             System.out.println("No storage available!");
@@ -85,41 +93,78 @@ public class FileIO {
     }
 
     //
-    public ArrayList<FridgeItem> loadItems() {
+    public ArrayList<FridgeItem> loadItems(final AutoReceipter app) {
         ArrayList<FridgeItem> temp = new ArrayList<FridgeItem>();
         String strToRead = readFile();
         Scanner in = new Scanner(strToRead);
+        int breakCount = 0;
 
-        String str = in.next();
-        while(!str.equalsIgnoreCase("END")) {
-            FridgeItem o = new FridgeItem();
-            if(str.equalsIgnoreCase("[INVENTORY]"))
+        FridgeItem o = new FridgeItem();
+        o.skin = app.skin;
+
+        String str = "";
+        boolean newItem = false;
+        boolean done = false;
+        while(in.hasNext()) {
+            str = in.next();
+            System.out.println(str);
+
+            if(++breakCount == 1000)
+                break;
+
+            if(newItem) {
+                o = new FridgeItem();
+                o.skin = app.skin;
+                newItem = false;
+            }
+
+            if(str.equalsIgnoreCase("END")) {
+                o.setWidget();
+                temp.add(o);
+                newItem = true;
                 continue;
+            }
+
+            if(str.equalsIgnoreCase("[INVENTORY]")) {
+                continue;
+            }
+
             else if(str.equalsIgnoreCase("item_name")) {
                 String name = in.next();
-                o.setName(name);
+                o.setItemName(name);
             }
+
             else if(str.equalsIgnoreCase("quantity")) {
                 int q = in.nextInt();
                 o.setQuantity(q);
             }
+
             else if(str.equalsIgnoreCase("cost")) {
                 double cost = in.nextDouble();
                 o.setCost(cost);
             }
+
             else if(str.equalsIgnoreCase("total_quantity")) {
                 int tq = in.nextInt();
                 o.setTotalQuantity(tq);
             }
+
             else if(str.equalsIgnoreCase("last_purchased")) {
                 String date = in.next();
-                Date d = new Date(date);
+                Date d;
+                System.out.println(date);
+                try {
+                    SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
+                    d = format.parse(date);
+                } catch(ParseException e) {
+                    throw new IllegalArgumentException();
+                }
                 o.setDate(d);
             }
+
             else {
-                System.out.println("Unknown input: " +str);
+                System.out.println("Unknown input: " + str);
             }
-            temp.add(o);
         }
 
         return temp;

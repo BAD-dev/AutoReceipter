@@ -83,7 +83,7 @@ public class FridgeItem extends Widget {
         widget.setWidth(widgetWidth);
         widget.add(image).center().left();
 
-        stats.add(new Label(getItemName(), skin, "segoeui_bold")).pad(2f).left().top().row();
+        stats.add(new Label(name, skin, "segoeui_bold")).pad(2f).left().top().row();
         stats.add(new Label(getQuantity(), skin, "segoeui")).pad(2f).left().top().row();
         stats.add(new Label(getLastPurchased(), skin, "segoeui")).pad(2f).left().top().row();
 
@@ -102,6 +102,10 @@ public class FridgeItem extends Widget {
     // Returns a string containing item name
     public final String getItemName() {
         return name;
+    }
+
+    public final void setItemName(String name) {
+        this.name = name;
     }
 
     // Get the current quantity of this item

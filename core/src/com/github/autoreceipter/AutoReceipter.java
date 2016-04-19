@@ -55,6 +55,10 @@ public abstract class AutoReceipter implements ApplicationListener {
         skin = new Skin(atlas);
         new SkinStyles().style(skin, atlas);
 
+        // Open saved item list and parse whats in it
+        fileIO = new FileIO("data/sampleInput2.txt", FileIO.STORAGE.INTERNAL);
+        this.items = fileIO.loadItems(this);
+
         itemParser = new ItemParser(this);
 
         Gdx.input.setInputProcessor(stage);

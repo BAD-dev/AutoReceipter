@@ -1,6 +1,7 @@
 package com.github.autoreceipter;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -30,15 +31,15 @@ public class FridgeScreen extends BaseScreen {
     public FridgeScreen(final AutoReceipter app) {
         super(app);
 
-        FileIO fileIO = new FileIO("data/data.txt");
-        String text = fileIO.readFile();
-        System.out.println(text);
+        //FileIO fileIO = new FileIO("data/data.txt");
+        //String text = fileIO.readFile();
+        //System.out.println(text);
 
         table.reset();
         table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
 
-        Label label = new Label("Fridge Screen", app.skin);
+        Label label = new Label("Fridge Screen", app.skin, "segoeui");
         scrollTable = new Table();
         final ScrollPane scrollPane = new ScrollPane(scrollTable);
 
@@ -47,9 +48,13 @@ public class FridgeScreen extends BaseScreen {
 
         FridgeItem.setDimensions(app.width, app.height);
 
-        app.items = new ArrayList<FridgeItem>();
+        // This will be removed when scanning works
+        if(app.items.isEmpty()) {
+            app.items = new ArrayList<FridgeItem>();
+            createFridgeInventory();
+        }
+
         itemsDisplayed = new ArrayList<FridgeItem>();
-        createFridgeInventory();
 
         Table container = new Table();
 
@@ -84,13 +89,10 @@ public class FridgeScreen extends BaseScreen {
      * Create 30 FridgeItmes and place into fridge list
      */
     private void createFridgeInventory() {
-        if(!app.items.isEmpty())
-            app.items.clear();
-
         for(int i = 0; i < 30; i++) {
             String name = "" + (i+1);
             Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
-            FridgeItem o = new FridgeItem(name, "Item "+i, c, app.skin);
+            FridgeItem o = new FridgeItem(name, 0.00, 1, c, app.skin);
             app.items.add(o);
         }
     }

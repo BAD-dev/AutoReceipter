@@ -21,7 +21,7 @@ public class ScanScreen extends BaseScreen {
 
         //final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
 
-        final FileIO fileIO = new FileIO("data/convertedText.txt", FileIO.STORAGE.EXTERNAL);
+        app.fileIO.changeFilePath("data/convertedText.txt", FileIO.STORAGE.EXTERNAL);
 
         Label label = new Label("Scan Screen", app.skin);
 
@@ -43,13 +43,18 @@ public class ScanScreen extends BaseScreen {
                     Thread.sleep(420);
                     processor = new ImageProcessing();
                     processor.ProcessFile(TestApp.taker.scannedImagePath);
-                    System.out.println(processor.getConvertedFile().trim());
-                    fileIO.writeFile(processor.getConvertedFile().trim(), false);
+
+                    String convertedStr = processor.getConvertedFile().trim();
+                    app.fileIO.writeFile(convertedStr, false);
+                    decodeButton.remove();
+                    table.reset();
+                    app.switchScreens(new ListScreen(app, app.itemParser.parse(convertedStr)));
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
 
-                app.switchScreens(new FridgeScreen(app));
+                //app.switchScreens(new FridgeScreen(app));
             }
         });
     }

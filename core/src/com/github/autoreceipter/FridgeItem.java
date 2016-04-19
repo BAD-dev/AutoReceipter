@@ -11,9 +11,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.ArrayMap;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -30,38 +33,82 @@ public class FridgeItem extends Widget {
     }
 
     public static float widgetWidth, widgetHeight;
+    public static ArrayMap<String, Image> foods;
 
     public Table widget;
     public Table stats;
 
-    private String name;
-    private Label description;
-    private Image image;
-    private int quantity;
-    private Color color;
-    private Date lastPurchased;
-    private int daysSinceLastPurchase;
-    private int totalQuantity;
-    private Skin skin;
+    public String name;
+    public Label description;
+    public double cost;
+    public Image image;
+    public int quantity;
+    public Color color;
+    public Date lastPurchased;
+    public int daysSinceLastPurchase;
+    public int totalQuantity;
+    public Skin skin;
 
-    public FridgeItem(String name, String description, Color color, Skin skin) {
+    public FridgeItem(Skin skin) {
         this.widget = new Table();
         this.stats = new Table();
+        this.skin = skin;
+
+        if(foods == null)
+            populateFoods();
+
+        this.name = "";
+        this.cost = 0.00;
+        this.quantity = 0;
+        this.lastPurchased = new Date();
+        this.image = foods.get("default");
+
+        populateFoods();
+    }
+
+    public FridgeItem(String name, double cost, int quantity, Color color, Skin skin) {
+        this.widget = new Table();
+        this.stats = new Table();
+
+        if(foods == null)
+            populateFoods();
+
         this.name = name;
-        this.description = new Label(description, skin);
-        this.image = new Image(skin.getRegion("BADdev"));
+        this.description = new Label(name, skin);
+        this.cost = cost;
+        this.image = foods.get("default");
         this.color = color;
-        this.quantity = 1;
+        this.quantity = quantity;
+        incrementQuantity(quantity);
         this.lastPurchased = new Date();
         this.skin = skin;
 
         image.setColor(color);
         image.addListener(new ImageClick(this));
 
+        populateFoods();
         setWidget();
     }
 
-    private final void setWidget() {
+    private void populateFoods() {
+        foods = new ArrayMap<String, Image>();
+        foods.put("apple", skin.get("appleRegion", Image.class));
+        foods.put("banana", skin.get("bananaRegion", Image.class));
+        foods.put("bread", skin.get("breadRegion", Image.class));
+        foods.put("burger", skin.get("burgerRegion", Image.class));
+        foods.put("candy", skin.get("candyRegion", Image.class));
+        foods.put("cheese", skin.get("cheeseRegion", Image.class));
+        foods.put("coffee", skin.get("coffeeRegion", Image.class));
+        foods.put("default", skin.get("defaultRegion", Image.class));
+        foods.put("drink", skin.get("drinkRegion", Image.class));
+        foods.put("fish", skin.get("fishRegion", Image.class));
+        foods.put("fruit", skin.get("fruitRegion", Image.class));
+        foods.put("icecream", skin.get("icecreamRegion", Image.class));
+        foods.put("meat", skin.get("meatRegion", Image.class));
+        foods.put("pizza", skin.get("pizzaRegion", Image.class));
+    }
+
+    public final void setWidget() {
         //widget.setWidth(widgetWidth);
         //widget.setHeight(widgetHeight);
         widget.defaults();
@@ -69,9 +116,9 @@ public class FridgeItem extends Widget {
         widget.setWidth(widgetWidth);
         widget.add(image).center().left();
 
-        stats.add(new Label(getItemName(), skin, "itemNameStyle")).pad(2f).left().top().row();
-        stats.add(new Label(getQuantity(), skin)).pad(2f).left().top().row();
-        stats.add(new Label(getLastPurchased(), skin)).pad(2f).left().top().row();
+        stats.add(new Label(name, skin, "segoeui_bold")).pad(2f).left().top().row();
+        stats.add(new Label(getQuantity(), skin, "segoeui")).pad(2f).left().top().row();
+        stats.add(new Label(getLastPurchased(), skin, "segoeui")).pad(2f).left().top().row();
 
         widget.add(stats);
 
@@ -86,12 +133,29 @@ public class FridgeItem extends Widget {
 
     // Returns a string containing item name
     public final String getItemName() {
-        return "Name: " + name;
+        return name;
+    }
+
+    public final void setItemName(String name) {
+        this.name = name;
     }
 
     // Get the current quantity of this item
     public final String getQuantity() {
-        return "Quantity: " + quantity;
+        String str = "";
+        return str + quantity;
+    }
+
+    public final void setImage(Image i) {
+        this.image = i;
+    }
+
+    public final void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public final void setTotalQuantity(int totalQuantity) {
+        this.totalQuantity = totalQuantity;
     }
 
     // Set the date of the last purchased item
@@ -102,7 +166,7 @@ public class FridgeItem extends Widget {
     // Returns a string containing the date this item was last purchased
     public final String getLastPurchased() {
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        return "Last Purchased: " + dateFormat.format(lastPurchased);
+        return dateFormat.format(lastPurchased);
     }
 
     // Not sure what to do with description. Maybe used for picking an image
@@ -122,6 +186,14 @@ public class FridgeItem extends Widget {
 
     public final Color getColor() {
         return color;
+    }
+
+    public final double getCost() {
+        return cost;
+    }
+
+    public final void setCost(double cost) {
+        this.cost = cost;
     }
 
     // Used for getting background image

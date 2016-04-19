@@ -8,7 +8,9 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -35,7 +37,10 @@ public class SkinStyles {
         BitmapFont font = new BitmapFont();
         font.getData().setScale(1, 1);
         skin.add("default", font);
-        font();
+        skin.add("segoeui", font("fonts/segoeui.ttf", 20));
+        skin.add("segoeui_bold", font("fonts/segoeui_b.ttf", 30));
+        skin.add("segoeui_semi_bold", font("fonts/segoeui_sb.ttf", 20));
+        skin.add("segoeui_light", font("fonts/segoeui_l.ttf", 20));
 
         BitmapFont itemNameFont = new BitmapFont();
         itemNameFont.getData().setScale(2, 2);
@@ -51,6 +56,16 @@ public class SkinStyles {
         itemName.font = itemNameFont;
         itemName.fontColor = Color.BLACK;
         skin.add("itemNameStyle", itemName);
+
+        Label.LabelStyle segoeui = new Label.LabelStyle();
+        segoeui.font = skin.getFont("segoeui");
+        segoeui.fontColor = Color.BLACK;
+        skin.add("segoeui", segoeui);
+
+        Label.LabelStyle segoeui_bold = new Label.LabelStyle();
+        segoeui_bold.font = skin.getFont("segoeui_bold");
+        segoeui_bold.fontColor = Color.BLACK;
+        skin.add("segoeui_bold", segoeui_bold);
 
         /* Colors */
         skin.add("lt-blue", new Color(.6f, .8f, 1f, 1f));
@@ -79,7 +94,25 @@ public class SkinStyles {
         skin.add("decode-button", atlas.findRegion("decode-button"), TextureRegion.class);
         skin.add("decode-button-clicked", atlas.findRegion("decode-button-clicked"), TextureRegion.class);
         //skin.add("question-mark-button-clicked", atlas.findRegion("question-mark-button-clicked"), TextureRegion.class);
+        skin.add("ok-button", atlas.findRegion("ok-button"), TextureRegion.class);
+        skin.add("ok-button-clicked", atlas.findRegion("ok-button-clicked"), TextureRegion.class);
         skin.add("BADdev", atlas.findRegion("BADdev"), TextureRegion.class);
+
+        /* Food skins */
+        skin.add("apple-icon", atlas.findRegion("apple"), TextureRegion.class);
+        skin.add("banana-icon", atlas.findRegion("banana"), TextureRegion.class);
+        skin.add("bread-icon", atlas.findRegion("bread"), TextureRegion.class);
+        skin.add("burger-icon", atlas.findRegion("burger"), TextureRegion.class);
+        skin.add("candy-icon", atlas.findRegion("candy"), TextureRegion.class);
+        skin.add("cheese-icon", atlas.findRegion("cheese"), TextureRegion.class);
+        skin.add("coffee-icon", atlas.findRegion("coffee"), TextureRegion.class);
+        skin.add("default-icon", atlas.findRegion("default"), TextureRegion.class);
+        skin.add("drink-icon", atlas.findRegion("drink"), TextureRegion.class);
+        skin.add("fish-icon", atlas.findRegion("fish"), TextureRegion.class);
+        skin.add("fruit-icon", atlas.findRegion("fruit"), TextureRegion.class);
+        skin.add("icecream-icon", atlas.findRegion("icecream"), TextureRegion.class);
+        skin.add("meat-icon", atlas.findRegion("meat"), TextureRegion.class);
+        skin.add("pizza-icon", atlas.findRegion("pizza"), TextureRegion.class);
 
         /* TextureRegions */
         TextureRegionDrawable scanButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("scan-button")));
@@ -97,6 +130,24 @@ public class SkinStyles {
         TextureRegionDrawable checkBoxChecked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("checkbox_checked")));
         TextureRegionDrawable decodeButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("decode-button")));
         TextureRegionDrawable decodeButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("decode-button-clicked")));
+        TextureRegionDrawable okButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button")));
+        TextureRegionDrawable okButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button-clicked")));
+
+        /* Food texture regions */
+        skin.add("appleRegion", new Image(skin.getRegion("apple-icon")));
+        skin.add("bananaRegion", new Image(skin.getRegion("banana-icon")));
+        skin.add("breadRegion", new Image(skin.getRegion("bread-icon")));
+        skin.add("burgerRegion",new Image(skin.getRegion("burger-icon")));
+        skin.add("candyRegion", new Image(skin.getRegion("candy-icon")));
+        skin.add("cheeseRegion", new Image(skin.getRegion("cheese-icon")));
+        skin.add("coffeeRegion", new Image(skin.getRegion("coffee-icon")));
+        skin.add("defaultRegion", new Image(skin.getRegion("default-icon")));
+        skin.add("drinkRegion", new Image(skin.getRegion("drink-icon")));
+        skin.add("fishRegion", new Image(skin.getRegion("fish-icon")));
+        skin.add("fruitRegion", new Image(skin.getRegion("fruit-icon")));
+        skin.add("icecreamRegion", new Image(skin.getRegion("icecream-icon")));
+        skin.add("meatRegion", new Image(skin.getRegion("meat-icon")));
+        skin.add("pizzaRegion", new Image(skin.getRegion("pizza-icon")));
 
         //TextField.TextFieldStyle searchStyle
         /* ImageButtons */
@@ -108,6 +159,7 @@ public class SkinStyles {
         //ImageTextButton.ImageTextButtonStyle scan_tbs = new ImageTextButton.ImageTextButtonStyle()
         ImageButton.ImageButtonStyle BADdevButtonStyle = new ImageButton.ImageButtonStyle(BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion);
         ImageButton.ImageButtonStyle decode_ibs = new ImageButton.ImageButtonStyle(decodeButtonRegion, decodeButtonRegionClicked, decodeButtonRegionClicked, decodeButtonRegion, decodeButtonRegionClicked, decodeButtonRegionClicked);
+        ImageButton.ImageButtonStyle ok_ibs = new ImageButton.ImageButtonStyle(okButtonRegion, okButtonRegionClicked, okButtonRegionClicked, okButtonRegion, okButtonRegionClicked, okButtonRegionClicked);
 
         // Checkbox style
         CheckBox.CheckBoxStyle checkBoxStyle = new CheckBox.CheckBoxStyle(checkBox, checkBoxChecked, font, skin.getColor("lt-blue"));
@@ -118,6 +170,7 @@ public class SkinStyles {
         //skin.add("backButtonStyle", back_ibs);
         skin.add("questionMarkStyle", question_ibs);
         skin.add("decodeButtonStyle", decode_ibs);
+        skin.add("okButtonStyle", ok_ibs);
 
         skin.add("BADdevButtonStyle", BADdevButtonStyle);
         skin.add("default", checkBoxStyle);
@@ -126,10 +179,14 @@ public class SkinStyles {
         skin.add("bg_noheader", getBackground(""));
     }
 
-    private void font() {
-        //FreeTypeFontGenerator gen = new FreeTypeFontGenerator(Gdx.files.internal(""));
-        //BitmapFont font2 = gen.generateFont(16);
-        //gen.dispose();
+    private BitmapFont font(String fpath, int size) {
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fpath));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = size;
+        BitmapFont font = generator.generateFont(parameter);
+        generator.dispose();
+
+        return font;
     }
 
     public NinePatchDrawable getBackground(String screen) {

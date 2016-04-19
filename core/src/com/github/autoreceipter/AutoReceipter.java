@@ -35,6 +35,7 @@ public abstract class AutoReceipter implements ApplicationListener {
     private float totalTransitionTime = -420f;  //
     public static boolean finishedTransition;
     public FileIO fileIO;
+    public static ItemParser itemParser;
     public static ArrayList<FridgeItem> items;
 
     public BaseScreen activeScreen, nextScreen;
@@ -53,6 +54,16 @@ public abstract class AutoReceipter implements ApplicationListener {
         atlas = new TextureAtlas("packed/packedImage.atlas");
         skin = new Skin(atlas);
         new SkinStyles().style(skin, atlas);
+
+        // Open saved item list and parse whats in it
+        //fileIO = new FileIO("data/sampleInput2.txt", FileIO.STORAGE.INTERNAL);
+        fileIO = new FileIO();
+        fileIO.changeFilePath("data/sampleInput2.txt", FileIO.STORAGE.INTERNAL);
+        this.items = fileIO.loadItems(this);
+        fileIO.changeFilePath("data/sampleOutput.txt", FileIO.STORAGE.EXTERNAL);
+        fileIO.saveItems(items);
+
+        itemParser = new ItemParser(this);
 
         Gdx.input.setInputProcessor(stage);
 

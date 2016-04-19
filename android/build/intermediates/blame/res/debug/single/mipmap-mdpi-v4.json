@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "A:\\workspace\\GitHub\\AutoReceipter\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher_bd.png",
+        "source": "A:\\workspace\\GitHub\\AutoReceipter\\android\\res\\mipmap-mdpi\\ic_launcher_bd.png"
+    },
+    {
+        "merged": "A:\\workspace\\GitHub\\AutoReceipter\\android\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi-v4\\ic_launcher.png",
+        "source": "A:\\workspace\\GitHub\\AutoReceipter\\android\\res\\mipmap-mdpi\\ic_launcher.png"
+    }
+]

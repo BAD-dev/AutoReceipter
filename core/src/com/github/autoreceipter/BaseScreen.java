@@ -20,6 +20,7 @@ public abstract class BaseScreen extends Group {
 
     protected final AutoReceipter app;
     protected final Table table = new Table();
+
     //protected final AssetManager assetManager = new AssetManager();
 
     public static float padSize, defaultDuration;

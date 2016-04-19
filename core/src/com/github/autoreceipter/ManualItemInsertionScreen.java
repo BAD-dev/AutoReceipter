@@ -35,7 +35,6 @@ public class ManualItemInsertionScreen extends BaseScreen {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
-                //String name, double cost, int quantity, Color color, Skin skin
                 FridgeItem o = new FridgeItem("UserNameInput", 0.0, 1, c, app.skin);
                 listToAddTo.add(o);
 

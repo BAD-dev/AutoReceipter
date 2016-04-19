@@ -58,13 +58,15 @@ public class ListItem extends Widget {
         this.widget = new Table();
         widget.defaults();
 
+        this.name = item.name;
+
         checkBox = new CheckBox("", skin);
         checkBox.getCells().get(0).size(100, 100);
         checkBox.setChecked(true);
         checkBox.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                if(checked)
+                if (checked)
                     checked = false;
                 else
                     checked = true;
@@ -73,6 +75,7 @@ public class ListItem extends Widget {
             }
         });
 
+        widget.add(new Label(name, skin)).pad(20f).left();
         widget.add(checkBox).padLeft(20).right();
     }
 

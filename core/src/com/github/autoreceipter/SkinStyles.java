@@ -150,6 +150,11 @@ public class SkinStyles {
         skin.add("pizzaRegion", new Image(skin.getRegion("pizza-icon")));
 
         //TextField.TextFieldStyle searchStyle
+        TextField.TextFieldStyle manualInput = new TextField.TextFieldStyle();
+        manualInput.font = skin.getFont("segoeui");
+        manualInput.fontColor = Color.BLACK;
+        skin.add("textFieldStyle", manualInput);
+
         /* ImageButtons */
         ImageButton.ImageButtonStyle scan_ibs = new ImageButton.ImageButtonStyle(scanButtonRegion, scanButtonRegionClicked, scanButtonRegionClicked, scanButtonRegion, scanButtonRegionClicked, scanButtonRegionClicked);
         ImageButton.ImageButtonStyle fridge_ibs = new ImageButton.ImageButtonStyle(fridgeButtonRegion, fridgeButtonRegionClicked, fridgeButtonRegionClicked, fridgeButtonRegion, fridgeButtonRegionClicked, fridgeButtonRegionClicked);

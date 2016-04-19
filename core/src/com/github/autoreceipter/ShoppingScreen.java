@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Georg on 4/18/2016.
@@ -91,8 +90,6 @@ public class ShoppingScreen extends BaseScreen {
                         for (int i = 0; i < listItems.size(); i++) {
                             if (listItems.get(i).checked) {
                                 items.remove(i);
-                                listItems.remove(i);
-                                i--;
                             }
                         }
 
@@ -162,8 +159,6 @@ public class ShoppingScreen extends BaseScreen {
                     for (int i = 0; i < listItems.size(); i++) {
                         if (listItems.get(i).checked) {
                             items.remove(i);
-                            listItems.remove(i);
-                            i--;
                         }
                     }
 
@@ -190,14 +185,9 @@ public class ShoppingScreen extends BaseScreen {
     }
 
     public void generateAutomaticList() {
-        ArrayList<FridgeItem> list = new ArrayList<FridgeItem>();
         for(int x=0; x<app.items.size(); x++) {
-            long daysBetween = (new Date().getTime() - app.items.get(x).lastPurchased.getTime()) / (1000*60*60*24);
-            if(daysBetween > 7) {
-                list.add(app.items.get(x));
-            }
+            //if(app.items.get(x).getLastPurchased())
         }
-        addItemsToTable(list);
     }
 
     @Override

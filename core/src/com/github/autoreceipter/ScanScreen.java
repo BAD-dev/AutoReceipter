@@ -36,14 +36,19 @@ public class ScanScreen extends BaseScreen {
         decodeButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                ImageProcessing processor = new ImageProcessing();
+                decodeButton.setChecked(true);
+                app.render();
+                ImageProcessing processor;
                 try {
+                    Thread.sleep(420);
+                    processor = new ImageProcessing();
                     processor.ProcessFile(TestApp.taker.scannedImagePath);
+                    System.out.println(processor.getConvertedFile().trim());
+                    fileIO.writeFile(processor.getConvertedFile().trim(), false);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                System.out.println(processor.getConvertedFile().trim());
-                fileIO.writeFile(processor.getConvertedFile().trim(), false);
+
                 app.switchScreens(new FridgeScreen(app));
             }
         });
@@ -56,6 +61,6 @@ public class ScanScreen extends BaseScreen {
 
     @Override
     public transitionDir getDirection(BaseScreen nextScreen) {
-        return transitionDir.UP;
+        return transitionDir.FADE;
     }
 }

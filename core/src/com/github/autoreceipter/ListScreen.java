@@ -33,9 +33,10 @@ public class ListScreen extends BaseScreen {
 
         Label label = new Label("Shopping List Screen", app.skin);
 
+        table.reset();
         table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
-        table.add(label).row();
+        //table.add(label).row();
 
         table.debug();
 
@@ -48,7 +49,6 @@ public class ListScreen extends BaseScreen {
         FridgeItem.setDimensions(app.width, app.height);
 
         generateListItems(items);
-
 
         ImageButton fridgeButton = new ImageButton(app.skin.get("fridgeButtonStyle", ImageButton.ImageButtonStyle.class));
 

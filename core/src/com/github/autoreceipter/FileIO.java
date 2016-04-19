@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class FileIO {
 
     private static FileHandle file;
+    private static String backup;
     public enum STORAGE {LOCAL, EXTERNAL, INTERNAL}
 
     public FileIO(String fpath) {
@@ -39,7 +40,11 @@ public class FileIO {
     }
 
     // Same constructor except with storage type defined. For testing purposes
-    public FileIO(String fpath, STORAGE storage) {
+    public FileIO() {
+
+    }
+
+    public void changeFilePath(String fpath, STORAGE storage) {
         if(storage == STORAGE.LOCAL && Gdx.files.isLocalStorageAvailable()) {
             file = Gdx.files.local(fpath);
             System.out.println("Local path: " + file.path());
@@ -75,19 +80,20 @@ public class FileIO {
 
     // Saves list of passed items to file
     public void saveItems(ArrayList<FridgeItem> items) {
-        String backup;
         if(file.exists())
             backup = readFile();
 
         String strToWrite = "[INVENTORY]\n";
         for(FridgeItem o : items) {
-            strToWrite += "item_name " + o.name + "\n";
+            strToWrite += "item_name \"" + o.name + "\"\n";
             strToWrite += "quantity " + o.quantity + "\n";
             strToWrite += "cost " + o.cost + "\n";
             strToWrite += "total_quantity " + o.totalQuantity + "\n";
+            strToWrite += "last_purchased " + o.getLastPurchased() + "\n";
+            // add more fields
+            // ...
+            strToWrite += "END\n";
         }
-
-        strToWrite += "END";
 
         writeFile(strToWrite, false);
     }
@@ -102,9 +108,8 @@ public class FileIO {
         FridgeItem o = new FridgeItem();
         o.skin = app.skin;
 
-        String str = "";
+        String str;
         boolean newItem = false;
-        boolean done = false;
         while(in.hasNext()) {
             str = in.next();
             System.out.println(str);
@@ -130,7 +135,7 @@ public class FileIO {
             }
 
             else if(str.equalsIgnoreCase("item_name")) {
-                String name = in.next();
+                String name = findName(in);
                 o.setItemName(name);
             }
 
@@ -152,7 +157,6 @@ public class FileIO {
             else if(str.equalsIgnoreCase("last_purchased")) {
                 String date = in.next();
                 Date d;
-                System.out.println(date);
                 try {
                     SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
                     d = format.parse(date);
@@ -170,6 +174,20 @@ public class FileIO {
         return temp;
     }
 
+    private String findName(Scanner in) {
+        String res = "";
+        String cur = in.next();
+        if(cur.startsWith("\"") && cur.length() > 1)
+            cur = cur.substring(1);
+
+        while(!cur.endsWith("\"")) {
+            res += cur + " ";
+            cur = in.next();
+        }
+
+        return res + cur.substring(0, cur.length()-1);
+    }
+
     public String readFile() {
         if(file.exists())
             return file.readString();
@@ -178,11 +196,9 @@ public class FileIO {
     }
     
     public void writeFile(String stringToWrite, boolean append) {
-        if(file.exists()) {
+        if(file.exists())
             file.writeString(stringToWrite, append);
-        }
-        else {
+        else
             System.out.println("File does not exist!");
-        }
     }
 }

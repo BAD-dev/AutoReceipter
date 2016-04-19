@@ -130,7 +130,7 @@ public class FridgeItem extends Widget {
     // Returns a string containing the date this item was last purchased
     public final String getLastPurchased() {
         DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        return "Last Purchased: " + dateFormat.format(lastPurchased);
+        return dateFormat.format(lastPurchased);
     }
 
     // Not sure what to do with description. Maybe used for picking an image

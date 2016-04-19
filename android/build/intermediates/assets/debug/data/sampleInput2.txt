@@ -1,7 +1,31 @@
-[inventory]
-item_name "Apples"
+[INVENTORY]
+item_name "Fish & Chips"
 quantity 3
 cost 1.50
 total_quantity 16
 last_purchased 10/19/2015
+END
+item_name "Pizza"
+quantity 2
+cost 4.99
+total_quantity 10
+last_purchased 3/18/2016
+END
+item_name "Apples"
+quantity 5
+cost 0.99
+total_quantity 6
+last_purchased 4/08/2016
+END
+item_name "Banana"
+quantity 4
+cost 1.19
+total_quantity 10
+last_purchased 4/12/2016
+END
+item_name "Papaya"
+quantity 1
+cost 3.00
+total_quantity 3
+last_purchased 2/15/2016
 END

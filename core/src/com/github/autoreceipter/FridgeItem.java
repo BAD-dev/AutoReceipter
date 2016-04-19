@@ -44,6 +44,10 @@ public class FridgeItem extends Widget {
     private int totalQuantity;
     private Skin skin;
 
+    public FridgeItem(){
+
+    }
+
     public FridgeItem(String name, String description, Color color, Skin skin) {
         this.widget = new Table();
         this.stats = new Table();
@@ -69,9 +73,9 @@ public class FridgeItem extends Widget {
         widget.setWidth(widgetWidth);
         widget.add(image).center().left();
 
-        stats.add(new Label(getItemName(), skin, "itemNameStyle")).pad(2f).left().top().row();
-        stats.add(new Label(getQuantity(), skin)).pad(2f).left().top().row();
-        stats.add(new Label(getLastPurchased(), skin)).pad(2f).left().top().row();
+        stats.add(new Label(getItemName(), skin, "segoeui_bold")).pad(2f).left().top().row();
+        stats.add(new Label(getQuantity(), skin, "segoeui")).pad(2f).left().top().row();
+        stats.add(new Label(getLastPurchased(), skin, "segoeui")).pad(2f).left().top().row();
 
         widget.add(stats);
 

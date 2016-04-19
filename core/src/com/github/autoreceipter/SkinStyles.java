@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
@@ -35,7 +36,10 @@ public class SkinStyles {
         BitmapFont font = new BitmapFont();
         font.getData().setScale(1, 1);
         skin.add("default", font);
-        font();
+        skin.add("segoeui", font("fonts/segoeui.ttf", 20));
+        skin.add("segoeui_bold", font("fonts/segoeui_b.ttf", 30));
+        skin.add("segoeui_semi_bold", font("fonts/segoeui_sb.ttf", 20));
+        skin.add("segoeui_light", font("fonts/segoeui_l.ttf", 20));
 
         BitmapFont itemNameFont = new BitmapFont();
         itemNameFont.getData().setScale(2, 2);
@@ -51,6 +55,16 @@ public class SkinStyles {
         itemName.font = itemNameFont;
         itemName.fontColor = Color.BLACK;
         skin.add("itemNameStyle", itemName);
+
+        Label.LabelStyle segoeui = new Label.LabelStyle();
+        segoeui.font = skin.getFont("segoeui");
+        segoeui.fontColor = Color.BLACK;
+        skin.add("segoeui", segoeui);
+
+        Label.LabelStyle segoeui_bold = new Label.LabelStyle();
+        segoeui_bold.font = skin.getFont("segoeui_bold");
+        segoeui_bold.fontColor = Color.BLACK;
+        skin.add("segoeui_bold", segoeui_bold);
 
         /* Colors */
         skin.add("lt-blue", new Color(.6f, .8f, 1f, 1f));
@@ -126,10 +140,14 @@ public class SkinStyles {
         skin.add("bg_noheader", getBackground(""));
     }
 
-    private void font() {
-        //FreeTypeFontGenerator gen = new FreeTypeFontGenerator(Gdx.files.internal(""));
-        //BitmapFont font2 = gen.generateFont(16);
-        //gen.dispose();
+    private BitmapFont font(String fpath, int size) {
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal(fpath));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = size;
+        BitmapFont font = generator.generateFont(parameter);
+        generator.dispose();
+
+        return font;
     }
 
     public NinePatchDrawable getBackground(String screen) {

@@ -11,9 +11,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.Widget;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
+import com.badlogic.gdx.utils.ArrayMap;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -45,24 +48,36 @@ public class FridgeItem extends Widget {
     public int totalQuantity;
     public Skin skin;
 
-    public FridgeItem(){
+    public static ArrayMap<String, Image> foods;
+
+    public FridgeItem(Skin skin) {
         this.widget = new Table();
         this.stats = new Table();
+        this.skin = skin;
+
+        if(foods == null)
+            populateFoods();
 
         this.name = "";
         this.cost = 0.00;
         this.quantity = 0;
         this.lastPurchased = new Date();
+        this.image = foods.get("default");
+
+        populateFoods();
     }
 
     public FridgeItem(String name, double cost, int quantity, Color color, Skin skin) {
         this.widget = new Table();
         this.stats = new Table();
 
+        if(foods == null)
+            populateFoods();
+
         this.name = name;
         this.description = new Label(name, skin);
         this.cost = cost;
-        this.image = new Image(skin.getRegion("BADdev"));
+        this.image = foods.get("default");
         this.color = color;
         this.quantity = quantity;
         incrementQuantity(quantity);
@@ -72,7 +87,26 @@ public class FridgeItem extends Widget {
         image.setColor(color);
         image.addListener(new ImageClick(this));
 
+        populateFoods();
         setWidget();
+    }
+
+    private void populateFoods() {
+        foods = new ArrayMap<String, Image>();
+        foods.put("apple", skin.get("appleRegion", Image.class));
+        foods.put("banana", skin.get("bananaRegion", Image.class));
+        foods.put("bread", skin.get("breadRegion", Image.class));
+        foods.put("burger", skin.get("burgerRegion", Image.class));
+        foods.put("candy", skin.get("candyRegion", Image.class));
+        foods.put("cheese", skin.get("cheeseRegion", Image.class));
+        foods.put("coffee", skin.get("coffeeRegion", Image.class));
+        foods.put("default", skin.get("defaultRegion", Image.class));
+        foods.put("drink", skin.get("drinkRegion", Image.class));
+        foods.put("fish", skin.get("fishRegion", Image.class));
+        foods.put("fruit", skin.get("fruitRegion", Image.class));
+        foods.put("icecream", skin.get("icecreamRegion", Image.class));
+        foods.put("meat", skin.get("meatRegion", Image.class));
+        foods.put("pizza", skin.get("pizzaRegion", Image.class));
     }
 
     public final void setWidget() {
@@ -112,6 +146,10 @@ public class FridgeItem extends Widget {
     public final String getQuantity() {
         String str = "";
         return str + quantity;
+    }
+
+    public final void setImage(Image i) {
+        this.image = i;
     }
 
     public final void setQuantity(int quantity) {

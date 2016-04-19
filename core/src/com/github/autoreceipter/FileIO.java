@@ -2,6 +2,9 @@ package com.github.autoreceipter;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.badlogic.gdx.utils.ArrayMap;
+import com.github.autoreceipter.FridgeItem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,6 +20,8 @@ public class FileIO {
     private static FileHandle file;
     private static String backup;
     public enum STORAGE {LOCAL, EXTERNAL, INTERNAL}
+
+    //private static ArrayMap<String, Image> keywords = FridgeItem.foods;
 
     public FileIO(String fpath) {
         if(Gdx.files.isLocalStorageAvailable()) {
@@ -88,8 +93,8 @@ public class FileIO {
             strToWrite += "item_name \"" + o.name + "\"\n";
             strToWrite += "quantity " + o.quantity + "\n";
             strToWrite += "cost " + o.cost + "\n";
-            strToWrite += "total_quantity " + o.totalQuantity + "\n";
-            strToWrite += "last_purchased " + o.getLastPurchased() + "\n";
+            //strToWrite += "total_quantity " + o.totalQuantity + "\n";
+            //strToWrite += "last_purchased " + o.getLastPurchased() + "\n";
             // add more fields
             // ...
             strToWrite += "END\n";
@@ -105,8 +110,8 @@ public class FileIO {
         Scanner in = new Scanner(strToRead);
         int breakCount = 0;
 
-        FridgeItem o = new FridgeItem();
-        o.skin = app.skin;
+        FridgeItem o = new FridgeItem(app.skin);
+        //o.skin = app.skin;
 
         String str;
         boolean newItem = false;
@@ -118,8 +123,7 @@ public class FileIO {
                 break;
 
             if(newItem) {
-                o = new FridgeItem();
-                o.skin = app.skin;
+                o = new FridgeItem(app.skin);
                 newItem = false;
             }
 
@@ -137,6 +141,15 @@ public class FileIO {
             else if(str.equalsIgnoreCase("item_name")) {
                 String name = findName(in);
                 o.setItemName(name);
+
+                // Look for keywords to assign an image
+                String[] separate = name.split("\\s+");
+                for(String s : separate)
+                    if(FridgeItem.foods != null && FridgeItem.foods.containsKey(s)) {
+                        o.setImage(FridgeItem.foods.get(s));
+                        continue;
+                    }
+                o.setImage(FridgeItem.foods.get("default"));
             }
 
             else if(str.equalsIgnoreCase("quantity")) {

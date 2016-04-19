@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
+import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageTextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -97,6 +98,22 @@ public class SkinStyles {
         skin.add("ok-button-clicked", atlas.findRegion("ok-button-clicked"), TextureRegion.class);
         skin.add("BADdev", atlas.findRegion("BADdev"), TextureRegion.class);
 
+        /* Food skins */
+        skin.add("apple-icon", atlas.findRegion("apple"), TextureRegion.class);
+        skin.add("banana-icon", atlas.findRegion("banana"), TextureRegion.class);
+        skin.add("bread-icon", atlas.findRegion("bread"), TextureRegion.class);
+        skin.add("burger-icon", atlas.findRegion("burger"), TextureRegion.class);
+        skin.add("candy-icon", atlas.findRegion("candy"), TextureRegion.class);
+        skin.add("cheese-icon", atlas.findRegion("cheese"), TextureRegion.class);
+        skin.add("coffee-icon", atlas.findRegion("coffee"), TextureRegion.class);
+        skin.add("default-icon", atlas.findRegion("default"), TextureRegion.class);
+        skin.add("drink-icon", atlas.findRegion("drink"), TextureRegion.class);
+        skin.add("fish-icon", atlas.findRegion("fish"), TextureRegion.class);
+        skin.add("fruit-icon", atlas.findRegion("fruit"), TextureRegion.class);
+        skin.add("icecream-icon", atlas.findRegion("icecream"), TextureRegion.class);
+        skin.add("meat-icon", atlas.findRegion("meat"), TextureRegion.class);
+        skin.add("pizza-icon", atlas.findRegion("pizza"), TextureRegion.class);
+
         /* TextureRegions */
         TextureRegionDrawable scanButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("scan-button")));
         TextureRegionDrawable scanButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("scan-button-clicked")));
@@ -115,6 +132,22 @@ public class SkinStyles {
         TextureRegionDrawable decodeButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("decode-button-clicked")));
         TextureRegionDrawable okButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button")));
         TextureRegionDrawable okButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button-clicked")));
+
+        /* Food texture regions */
+        skin.add("appleRegion", new Image(skin.getRegion("apple-icon")));
+        skin.add("bananaRegion", new Image(skin.getRegion("banana-icon")));
+        skin.add("breadRegion", new Image(skin.getRegion("bread-icon")));
+        skin.add("burgerRegion",new Image(skin.getRegion("burger-icon")));
+        skin.add("candyRegion", new Image(skin.getRegion("candy-icon")));
+        skin.add("cheeseRegion", new Image(skin.getRegion("cheese-icon")));
+        skin.add("coffeeRegion", new Image(skin.getRegion("coffee-icon")));
+        skin.add("defaultRegion", new Image(skin.getRegion("default-icon")));
+        skin.add("drinkRegion", new Image(skin.getRegion("drink-icon")));
+        skin.add("fishRegion", new Image(skin.getRegion("fish-icon")));
+        skin.add("fruitRegion", new Image(skin.getRegion("fruit-icon")));
+        skin.add("icecreamRegion", new Image(skin.getRegion("icecream-icon")));
+        skin.add("meatRegion", new Image(skin.getRegion("meat-icon")));
+        skin.add("pizzaRegion", new Image(skin.getRegion("pizza-icon")));
 
         //TextField.TextFieldStyle searchStyle
         /* ImageButtons */

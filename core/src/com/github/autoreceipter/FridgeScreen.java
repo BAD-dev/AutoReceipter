@@ -31,9 +31,9 @@ public class FridgeScreen extends BaseScreen {
     public FridgeScreen(final AutoReceipter app) {
         super(app);
 
-        FileIO fileIO = new FileIO("data/data.txt");
-        String text = fileIO.readFile();
-        System.out.println(text);
+        //FileIO fileIO = new FileIO("data/data.txt");
+        //String text = fileIO.readFile();
+        //System.out.println(text);
 
         table.reset();
         table.defaults().pad(6f);

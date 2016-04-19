@@ -29,6 +29,8 @@ public class ListScreen extends BaseScreen {
     public ListScreen(final AutoReceipter app, final ArrayList<FridgeItem> items) {
         super(app);
 
+        app.fileIO.changeFilePath("data/jorge.txt", FileIO.STORAGE.EXTERNAL);
+        app.fileIO.saveItems(items);
         //final ImageButton backButton = new ImageButton(app.skin.get("backButtonStyle", ImageButton.ImageButtonStyle.class));
 
         Label label = new Label("Shopping List Screen", app.skin);
@@ -48,6 +50,7 @@ public class ListScreen extends BaseScreen {
 
         FridgeItem.setDimensions(app.width, app.height);
 
+        list = new ArrayList<ListItem>();
         generateListItems(items);
 
         ImageButton fridgeButton = new ImageButton(app.skin.get("fridgeButtonStyle", ImageButton.ImageButtonStyle.class));
@@ -71,6 +74,7 @@ public class ListScreen extends BaseScreen {
         for(int x=0; x<items.size(); x++) {
             Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
             ListItem o = new ListItem(items.get(x).getItemName(), c, app.skin);
+            list.add(o);
             scrollTable.add(o.widget).expandX().prefHeight(300f).padLeft(35f).left().row();
         }
     }

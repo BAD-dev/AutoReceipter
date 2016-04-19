@@ -14,13 +14,22 @@ import com.github.autoreceipter.ocr.ImageProcessing;
 /**
  * Created by Julian on 4/16/2016.
  */
-public class ListItem extends FridgeItem {
+public class ListItem extends Widget {
 
+    public Table widget;
+    public Table stats;
+    public Color color;
+    public Skin skin;
     public CheckBox checkBox;
     public boolean checked = true;
 
     public ListItem(String name, Color color, Skin skin) {
         //super(name, color, skin);
+        this.widget = new Table();
+        this.color = color;
+        this.skin = skin;
+
+        widget.defaults();
 
         checkBox = new CheckBox("", skin);
         checkBox.getCells().get(0).size(100, 100);

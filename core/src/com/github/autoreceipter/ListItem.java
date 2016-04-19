@@ -54,7 +54,9 @@ public class ListItem extends Widget {
     }
 
     public ListItem(FridgeItem item, Skin skin) {
-        super(item.getItemName(), item.getDescription().getText().toString(), item.getColor(), skin);
+        //super(item.getItemName(), item.getDescription().getText().toString(), item.getColor(), skin);
+        this.widget = new Table();
+        widget.defaults();
 
         checkBox = new CheckBox("", skin);
         checkBox.getCells().get(0).size(100, 100);

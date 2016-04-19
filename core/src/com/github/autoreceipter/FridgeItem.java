@@ -33,6 +33,7 @@ public class FridgeItem extends Widget {
     }
 
     public static float widgetWidth, widgetHeight;
+    public static ArrayMap<String, Image> foods;
 
     public Table widget;
     public Table stats;
@@ -47,8 +48,6 @@ public class FridgeItem extends Widget {
     public int daysSinceLastPurchase;
     public int totalQuantity;
     public Skin skin;
-
-    public static ArrayMap<String, Image> foods;
 
     public FridgeItem(Skin skin) {
         this.widget = new Table();

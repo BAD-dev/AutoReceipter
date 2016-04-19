@@ -205,6 +205,7 @@ public class ItemParser {
             test.incrementQuantity(1);
             //cost is probably not a String, will need to parse in as double/float
             //set the cost with costList2.get(x);
+            test.setWidget();
             temp.add(test);
         }
 

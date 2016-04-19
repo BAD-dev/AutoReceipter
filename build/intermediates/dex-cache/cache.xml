@@ -5,7 +5,7 @@
         jar="A:\workspace\GitHub\AutoReceipter\core\build\libs\core-1.0.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="cb20a60c94389c27389393e0014be38518ffe44c">
+        sha1="a8738c39ecf425219d5beb87ddf4379995722a90">
         <dex dex="A:\workspace\GitHub\AutoReceipter\android\build\intermediates\pre-dexed\debug\core-1.0_a606a3be87663649845655a3f7aa4507d61ca171.jar" />
     </item>
 

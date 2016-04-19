@@ -30,7 +30,7 @@ public class ManualItemInsertionScreen extends BaseScreen {
        // final TextField field = new TextField("NAME", app.skin);
        // table.add(field).row();
 
-        ImageButton accept = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton accept = new ImageButton(app.skin.get("manualButtonStyle", ImageButton.ImageButtonStyle.class));
         accept.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {

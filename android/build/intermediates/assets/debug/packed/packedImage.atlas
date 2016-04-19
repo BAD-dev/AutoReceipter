@@ -4,121 +4,149 @@ size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-BADdev
-  rotate: false
-  xy: 630, 53
-  size: 180, 180
-  orig: 180, 180
-  offset: 0, 0
-  index: -1
 apple
   rotate: false
-  xy: 632, 751
+  xy: 630, 149
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-banana
+auto-button
   rotate: false
-  xy: 632, 493
-  size: 256, 256
-  orig: 256, 256
+  xy: 632, 876
+  size: 266, 92
+  orig: 266, 92
   offset: 0, 0
   index: -1
-bread
+auto-button-clicked
   rotate: false
-  xy: 632, 235
-  size: 256, 256
-  orig: 256, 256
+  xy: 632, 782
+  size: 266, 92
+  orig: 266, 92
+  offset: 0, 0
+  index: -1
+back-button
+  rotate: false
+  xy: 820, 43
+  size: 201, 104
+  orig: 201, 104
   offset: 0, 0
   index: -1
 checkbox
   rotate: false
-  xy: 2, 2
+  xy: 900, 940
   size: 28, 28
   orig: 28, 28
   offset: 0, 0
   index: -1
 checkbox_checked
   rotate: false
-  xy: 812, 58
+  xy: 900, 910
   size: 28, 28
   orig: 28, 28
   offset: 0, 0
   index: -1
+delete-button
+  rotate: false
+  xy: 632, 688
+  size: 266, 92
+  orig: 266, 92
+  offset: 0, 0
+  index: -1
+delete-button-clicked
+  rotate: false
+  xy: 632, 594
+  size: 266, 92
+  orig: 266, 92
+  offset: 0, 0
+  index: -1
 edit-button
   rotate: false
-  xy: 980, 930
+  xy: 900, 831
   size: 17, 77
   orig: 17, 77
   offset: 0, 0
   index: -1
 fridge-button2
   rotate: false
-  xy: 2, 228
+  xy: 2, 236
   size: 626, 194
   orig: 626, 194
   offset: 0, 0
   index: -1
 fridge-button2-clicked
   rotate: false
-  xy: 2, 814
+  xy: 2, 822
   size: 628, 193
   orig: 628, 193
   offset: 0, 0
   index: -1
 list-button2
   rotate: false
-  xy: 2, 32
+  xy: 2, 40
   size: 626, 194
   orig: 626, 194
   offset: 0, 0
   index: -1
 list-button2-clicked
   rotate: false
-  xy: 2, 619
+  xy: 2, 627
   size: 628, 193
   orig: 628, 193
   offset: 0, 0
   index: -1
 loadingSheet
   rotate: false
-  xy: 630, 6
+  xy: 632, 970
   size: 299, 45
   orig: 299, 45
   offset: 0, 0
   index: -1
+manual-button
+  rotate: false
+  xy: 632, 500
+  size: 266, 92
+  orig: 266, 92
+  offset: 0, 0
+  index: -1
+manual-button-clicked
+  rotate: false
+  xy: 632, 407
+  size: 266, 91
+  orig: 266, 91
+  offset: 0, 0
+  index: -1
 ok-button
   rotate: false
-  xy: 812, 88
+  xy: 630, 2
   size: 188, 145
   orig: 188, 145
   offset: 0, 0
   index: -1
 question-mark-button
   rotate: false
-  xy: 890, 897
+  xy: 933, 905
   size: 88, 110
   orig: 88, 110
   offset: 0, 0
   index: -1
 question-mark-button-clicked
   rotate: false
-  xy: 890, 792
+  xy: 919, 800
   size: 88, 103
   orig: 88, 103
   offset: 0, 0
   index: -1
 question-mark-button2
   rotate: false
-  xy: 890, 717
+  xy: 900, 725
   size: 46, 73
   orig: 46, 73
   offset: 0, 0
   index: -1
 scan-button2-clicked
   rotate: false
-  xy: 2, 424
+  xy: 2, 432
   size: 628, 193
   orig: 628, 193
   offset: 0, 0
@@ -129,21 +157,21 @@ size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-burger
+banana
   rotate: false
   xy: 630, 731
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-candy
+bread
   rotate: false
   xy: 460, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-cheese
+burger
   rotate: false
   xy: 718, 2
   size: 256, 256
@@ -219,92 +247,106 @@ size: 1024,1024
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-back-button
+BADdev
   rotate: false
-  xy: 776, 817
-  size: 201, 104
-  orig: 201, 104
+  xy: 2, 2
+  size: 180, 180
+  orig: 180, 180
+  offset: 0, 0
+  index: -1
+candy
+  rotate: false
+  xy: 2, 700
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+cheese
+  rotate: false
+  xy: 2, 442
+  size: 256, 256
+  orig: 256, 256
   offset: 0, 0
   index: -1
 coffee
   rotate: false
-  xy: 2, 665
+  xy: 260, 700
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 default
   rotate: false
-  xy: 2, 407
+  xy: 2, 184
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 drink
   rotate: false
-  xy: 260, 665
+  xy: 260, 442
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 fish
   rotate: false
-  xy: 2, 149
+  xy: 518, 700
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 fruit
   rotate: false
-  xy: 260, 407
+  xy: 260, 184
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 icecream
   rotate: false
-  xy: 518, 665
+  xy: 518, 442
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 meat
   rotate: false
-  xy: 260, 149
-  size: 256, 256
-  orig: 256, 256
-  offset: 0, 0
-  index: -1
-milk
-  rotate: false
-  xy: 518, 407
+  xy: 518, 184
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 ok-button-clicked
   rotate: false
-  xy: 2, 2
+  xy: 776, 811
   size: 188, 145
   orig: 188, 145
   offset: 0, 0
   index: -1
-pizza
+
+packedImage4.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+milk
   rotate: false
-  xy: 518, 149
+  xy: 2, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
-
-packedImage4.png
-size: 512,512
-format: RGBA8888
-filter: Nearest,Nearest
-repeat: none
+pizza
+  rotate: false
+  xy: 260, 2
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
 water
   rotate: false
-  xy: 2, 2
+  xy: 518, 2
   size: 256, 256
   orig: 256, 256
   offset: 0, 0

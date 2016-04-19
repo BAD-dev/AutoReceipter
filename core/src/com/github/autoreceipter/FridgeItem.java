@@ -36,8 +36,6 @@ public class FridgeItem extends Widget {
         }
     }
 
-    public AutoReceipter app;
-
     public static float widgetWidth, widgetHeight;
     public static ArrayMap<String, Image> foods;
 
@@ -131,15 +129,6 @@ public class FridgeItem extends Widget {
         widget.add(stats).center().padLeft(30f);
 
         final ImageButton edit = new ImageButton(skin.get("editButtonStyle", ImageButton.ImageButtonStyle.class));
-        edit.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                TestApp.taker.TakePicture();
-                app.switchScreens(new ItemAttributes(app));
-                edit.setChecked(false);
-            }
-        });
-
         widget.add(edit).padLeft(100f).right().expandX();
     }
 
@@ -220,10 +209,6 @@ public class FridgeItem extends Widget {
 
     public static ArrayMap<String, Image> getFoods() {
         return foods;
-    }
-
-    public void setApp(final AutoReceipter app) {
-        this.app = app;
     }
 
     // Used for getting background image

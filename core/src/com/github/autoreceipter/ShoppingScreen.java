@@ -28,15 +28,15 @@ public class ShoppingScreen extends BaseScreen {
         table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
 
-        ImageButton manual = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
-        ImageButton automatic = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton manual = new ImageButton(app.skin.get("manualButtonStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton automatic = new ImageButton(app.skin.get("autoButtonStyle", ImageButton.ImageButtonStyle.class));
 
         Table buttonTable = new Table();
 
         buttonTable.add(manual).left().padLeft(100);
-        buttonTable.add(new Label("Manual Input", app.skin)).left();
-        buttonTable.add().padLeft(200).padRight(200);
-        buttonTable.add(new Label("Automatic", app.skin)).right();
+        //buttonTable.add(new Label("Manual Input", app.skin)).left();
+        buttonTable.add().padLeft(100).padRight(100);
+        //buttonTable.add(new Label("Automatic", app.skin)).right();
         buttonTable.add(automatic).right().padRight(100);
 
         table.add(buttonTable).row();
@@ -72,9 +72,9 @@ public class ShoppingScreen extends BaseScreen {
 
         if (listItems != null && listItems.size() > 0) {
             Table forDeletion = new Table();
-            ImageButton deletion = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
+            ImageButton deletion = new ImageButton(app.skin.get("deleteButtonStyle", ImageButton.ImageButtonStyle.class));
             forDeletion.add(deletion);
-            forDeletion.add(new Label("Deletion", app.skin)).left();
+            //forDeletion.add(new Label("Deletion", app.skin)).left();
             table.add(forDeletion);
 
             deletion.addListener(new ClickListener() {
@@ -108,15 +108,15 @@ public class ShoppingScreen extends BaseScreen {
         table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
 
-        ImageButton manual = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
-        ImageButton automatic = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton manual = new ImageButton(app.skin.get("manualButtonStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton automatic = new ImageButton(app.skin.get("autoButtonStyle", ImageButton.ImageButtonStyle.class));
 
         Table buttonTable = new Table();
 
         buttonTable.add(manual).left().padLeft(100);
-        buttonTable.add(new Label("Manual Input", app.skin)).left();
-        buttonTable.add().padLeft(200).padRight(200);
-        buttonTable.add(new Label("Automatic", app.skin)).right();
+        //buttonTable.add(new Label("Manual Input", app.skin)).left();
+        buttonTable.add().padLeft(100).padRight(100);
+        //buttonTable.add(new Label("Automatic", app.skin)).right();
         buttonTable.add(automatic).right().padRight(100);
 
         table.add(buttonTable).row();
@@ -141,9 +141,9 @@ public class ShoppingScreen extends BaseScreen {
         addItemsToTable(createdList);
 
         Table forDeletion = new Table();
-        ImageButton deletion = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton deletion = new ImageButton(app.skin.get("deleteButtonStyle", ImageButton.ImageButtonStyle.class));
         forDeletion.add(deletion);
-        forDeletion.add(new Label("Deletion", app.skin)).left();
+        //forDeletion.add(new Label("Deletion", app.skin)).left();
         table.add(forDeletion);
 
         deletion.addListener(new ClickListener() {

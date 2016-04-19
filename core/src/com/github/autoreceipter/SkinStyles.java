@@ -93,6 +93,8 @@ public class SkinStyles {
         skin.add("decode-button", atlas.findRegion("decode-button"), TextureRegion.class);
         skin.add("decode-button-clicked", atlas.findRegion("decode-button-clicked"), TextureRegion.class);
         //skin.add("question-mark-button-clicked", atlas.findRegion("question-mark-button-clicked"), TextureRegion.class);
+        skin.add("ok-button", atlas.findRegion("ok-button"), TextureRegion.class);
+        skin.add("ok-button-clicked", atlas.findRegion("ok-button-clicked"), TextureRegion.class);
         skin.add("BADdev", atlas.findRegion("BADdev"), TextureRegion.class);
 
         /* TextureRegions */
@@ -111,6 +113,8 @@ public class SkinStyles {
         TextureRegionDrawable checkBoxChecked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("checkbox_checked")));
         TextureRegionDrawable decodeButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("decode-button")));
         TextureRegionDrawable decodeButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("decode-button-clicked")));
+        TextureRegionDrawable okButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button")));
+        TextureRegionDrawable okButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button-clicked")));
 
         //TextField.TextFieldStyle searchStyle
         /* ImageButtons */
@@ -122,6 +126,7 @@ public class SkinStyles {
         //ImageTextButton.ImageTextButtonStyle scan_tbs = new ImageTextButton.ImageTextButtonStyle()
         ImageButton.ImageButtonStyle BADdevButtonStyle = new ImageButton.ImageButtonStyle(BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion);
         ImageButton.ImageButtonStyle decode_ibs = new ImageButton.ImageButtonStyle(decodeButtonRegion, decodeButtonRegionClicked, decodeButtonRegionClicked, decodeButtonRegion, decodeButtonRegionClicked, decodeButtonRegionClicked);
+        ImageButton.ImageButtonStyle ok_ibs = new ImageButton.ImageButtonStyle(okButtonRegion, okButtonRegionClicked, okButtonRegionClicked, okButtonRegion, okButtonRegionClicked, okButtonRegionClicked);
 
         // Checkbox style
         CheckBox.CheckBoxStyle checkBoxStyle = new CheckBox.CheckBoxStyle(checkBox, checkBoxChecked, font, skin.getColor("lt-blue"));
@@ -132,6 +137,7 @@ public class SkinStyles {
         //skin.add("backButtonStyle", back_ibs);
         skin.add("questionMarkStyle", question_ibs);
         skin.add("decodeButtonStyle", decode_ibs);
+        skin.add("okButtonStyle", ok_ibs);
 
         skin.add("BADdevButtonStyle", BADdevButtonStyle);
         skin.add("default", checkBoxStyle);

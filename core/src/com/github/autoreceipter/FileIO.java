@@ -3,6 +3,8 @@ package com.github.autoreceipter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
+import java.util.ArrayList;
+
 /**
  * Created by Julian on 4/18/2016.
  */
@@ -52,6 +54,16 @@ public class FileIO {
             file = null;
             System.out.println("No storage available!");
         }
+    }
+
+    public void saveItems(ArrayList<FridgeItem> items) {
+        // Overwrite whatever is saved
+        boolean append = false;
+        String backup;
+        if(file.exists())
+            backup = readFile();
+
+
     }
 
     public String readFile() {

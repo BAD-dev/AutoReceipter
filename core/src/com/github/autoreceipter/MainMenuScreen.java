@@ -46,7 +46,7 @@ public class MainMenuScreen extends BaseScreen {
         listButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                app.switchScreens(new ListScreen(app));
+                app.switchScreens(new ShoppingScreen(app));
                 listButton.setChecked(false);
             }
         });

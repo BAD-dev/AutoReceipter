@@ -1,6 +1,7 @@
 package com.github.autoreceipter;
 
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.InputListener;
@@ -38,7 +39,7 @@ public class FridgeScreen extends BaseScreen {
         table.defaults().pad(6f);
         table.setBackground(new NinePatchDrawable(getNinePatch("background/background_white_noheader.png")));
 
-        Label label = new Label("Fridge Screen", app.skin);
+        Label label = new Label("Fridge Screen", app.skin, "segoeui");
         scrollTable = new Table();
         final ScrollPane scrollPane = new ScrollPane(scrollTable);
 
@@ -47,6 +48,7 @@ public class FridgeScreen extends BaseScreen {
 
         FridgeItem.setDimensions(app.width, app.height);
 
+        // This will be removed when scanning works
         app.items = new ArrayList<FridgeItem>();
         itemsDisplayed = new ArrayList<FridgeItem>();
         createFridgeInventory();

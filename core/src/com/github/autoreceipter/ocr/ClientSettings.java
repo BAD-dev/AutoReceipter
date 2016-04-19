@@ -9,9 +9,9 @@ import java.net.*;
  */
 public class ClientSettings {
 	// Name of application you created
-	public static final String APPLICATION_ID = "Auto Receipter";
+	public static final String APPLICATION_ID = "ScannerTestCOP";
 	// Password should be sent to your e-mail after application was created
-	public static final String PASSWORD = "RhaBqaP3IOBhLQHaeKyHMCaj";
+	public static final String PASSWORD = "xwToccn9tgl7sdbwm1zi9mbL";
 	
 	public static void setupProxy()
 	{

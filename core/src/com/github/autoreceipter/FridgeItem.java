@@ -41,7 +41,7 @@ public class FridgeItem extends Widget {
     private Color color;
     private Date lastPurchased;
     private int daysSinceLastPurchase;
-    private int totalPurchased;
+    private int totalQuantity;
     private Skin skin;
 
     public FridgeItem(String name, String description, Color color, Skin skin) {

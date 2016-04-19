@@ -3,6 +3,7 @@ package com.github.autoreceipter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.NinePatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -48,13 +49,24 @@ public class SkinStyles {
 
         Label.LabelStyle itemName = new Label.LabelStyle();
         itemName.font = itemNameFont;
-        itemName.fontColor = Color.WHITE;
+        itemName.fontColor = Color.BLACK;
         skin.add("itemNameStyle", itemName);
 
         /* Colors */
         skin.add("lt-blue", new Color(.6f, .8f, 1f, 1f));
         skin.add("lt-green", new Color(.6f, .9f, .6f, 1f));
         skin.add("dark-blue", new Color(.1f, .3f, 1f, 1f));
+
+        /* Loading Animation */
+//        Texture walkSheet = new Texture(Gdx.files.internal("loadingSheet.png"));
+//        TextureRegion[][] tmp = TextureRegion.split(walkSheet, walkSheet.getWidth()/6, walkSheet.getHeight());
+//        TextureRegion[] frames = new TextureRegion[6]; // number of frames
+//        int index = 0;
+//        for(int i = 0; i < 1; i++)
+//            for(int j = 0; j < 6; j++)
+//                frames[index++] = tmp[i][j];
+//        Animation loadingAnimation = new Animation(0.025f, frames);
+//        skin.add("loadingAnimation", loadingAnimation);
 
         /* Skins */
         skin.add("scan-button", atlas.findRegion("scan-button3"), TextureRegion.class);
@@ -64,6 +76,7 @@ public class SkinStyles {
         skin.add("fridge-button-clicked", atlas.findRegion("fridge-button3-clicked"), TextureRegion.class);
         skin.add("list-button-clicked", atlas.findRegion("list-button3-clicked"), TextureRegion.class);
         skin.add("question-mark-button", atlas.findRegion("question-mark-button2"), TextureRegion.class);
+        skin.add("decode-button", atlas.findRegion("decode-button"), TextureRegion.class);
         //skin.add("question-mark-button-clicked", atlas.findRegion("question-mark-button-clicked"), TextureRegion.class);
         skin.add("BADdev", atlas.findRegion("BADdev"), TextureRegion.class);
 
@@ -81,7 +94,7 @@ public class SkinStyles {
         TextureRegionDrawable BADdevReqion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("BADdev")));
         TextureRegionDrawable checkBox = new TextureRegionDrawable(new TextureRegion(skin.getRegion("checkbox")));
         TextureRegionDrawable checkBoxChecked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("checkbox_checked")));
-
+        TextureRegionDrawable decodeButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("decode-button")));
 
         //TextField.TextFieldStyle searchStyle
         /* ImageButtons */
@@ -92,6 +105,7 @@ public class SkinStyles {
         ImageButton.ImageButtonStyle question_ibs = new ImageButton.ImageButtonStyle(questionMarkButtonRegion, questionMarkButtonRegionClicked, questionMarkButtonRegionClicked, questionMarkButtonRegion, questionMarkButtonRegionClicked, questionMarkButtonRegionClicked);
         //ImageTextButton.ImageTextButtonStyle scan_tbs = new ImageTextButton.ImageTextButtonStyle()
         ImageButton.ImageButtonStyle BADdevButtonStyle = new ImageButton.ImageButtonStyle(BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion);
+        ImageButton.ImageButtonStyle decode_ibs = new ImageButton.ImageButtonStyle(decodeButtonRegion, decodeButtonRegion, decodeButtonRegion, decodeButtonRegion, decodeButtonRegion, decodeButtonRegion);
 
         // Checkbox style
         CheckBox.CheckBoxStyle checkBoxStyle = new CheckBox.CheckBoxStyle(checkBox, checkBoxChecked, font, skin.getColor("lt-blue"));
@@ -101,6 +115,7 @@ public class SkinStyles {
         skin.add("listButtonStyle", list_ibs);
         //skin.add("backButtonStyle", back_ibs);
         skin.add("questionMarkStyle", question_ibs);
+        skin.add("decodeButtonStyle", decode_ibs);
         skin.add("BADdevButtonStyle", BADdevButtonStyle);
         skin.add("default", checkBoxStyle);
 

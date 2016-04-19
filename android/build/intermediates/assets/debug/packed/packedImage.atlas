@@ -46,6 +46,13 @@ checkbox_checked
   orig: 28, 28
   offset: 0, 0
   index: -1
+edit-button
+  rotate: false
+  xy: 980, 930
+  size: 17, 77
+  orig: 17, 77
+  offset: 0, 0
+  index: -1
 fridge-button2
   rotate: false
   xy: 2, 228

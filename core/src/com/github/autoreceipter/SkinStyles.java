@@ -96,6 +96,7 @@ public class SkinStyles {
         //skin.add("question-mark-button-clicked", atlas.findRegion("question-mark-button-clicked"), TextureRegion.class);
         skin.add("ok-button", atlas.findRegion("ok-button"), TextureRegion.class);
         skin.add("ok-button-clicked", atlas.findRegion("ok-button-clicked"), TextureRegion.class);
+        skin.add("edit-button", atlas.findRegion("edit-button"), TextureRegion.class);
         skin.add("BADdev", atlas.findRegion("BADdev"), TextureRegion.class);
 
         /* Food skins */
@@ -132,22 +133,23 @@ public class SkinStyles {
         TextureRegionDrawable decodeButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("decode-button-clicked")));
         TextureRegionDrawable okButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button")));
         TextureRegionDrawable okButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button-clicked")));
+        TextureRegionDrawable editButton = new TextureRegionDrawable(new TextureRegion(skin.getRegion("edit-button")));
 
         /* Food texture regions */
-        skin.add("appleRegion", new Image(skin.getRegion("apple-icon")));
-        skin.add("bananaRegion", new Image(skin.getRegion("banana-icon")));
-        skin.add("breadRegion", new Image(skin.getRegion("bread-icon")));
-        skin.add("burgerRegion",new Image(skin.getRegion("burger-icon")));
-        skin.add("candyRegion", new Image(skin.getRegion("candy-icon")));
-        skin.add("cheeseRegion", new Image(skin.getRegion("cheese-icon")));
-        skin.add("coffeeRegion", new Image(skin.getRegion("coffee-icon")));
-        skin.add("defaultRegion", new Image(skin.getRegion("default-icon")));
-        skin.add("drinkRegion", new Image(skin.getRegion("drink-icon")));
-        skin.add("fishRegion", new Image(skin.getRegion("fish-icon")));
-        skin.add("fruitRegion", new Image(skin.getRegion("fruit-icon")));
-        skin.add("icecreamRegion", new Image(skin.getRegion("icecream-icon")));
-        skin.add("meatRegion", new Image(skin.getRegion("meat-icon")));
-        skin.add("pizzaRegion", new Image(skin.getRegion("pizza-icon")));
+//        skin.add("appleRegion", new Image(skin.getRegion("apple-icon")));
+//        skin.add("bananaRegion", new Image(skin.getRegion("banana-icon")));
+//        skin.add("breadRegion", new Image(skin.getRegion("bread-icon")));
+//        skin.add("burgerRegion",new Image(skin.getRegion("burger-icon")));
+//        skin.add("candyRegion", new Image(skin.getRegion("candy-icon")));
+//        skin.add("cheeseRegion", new Image(skin.getRegion("cheese-icon")));
+//        skin.add("coffeeRegion", new Image(skin.getRegion("coffee-icon")));
+//        skin.add("defaultRegion", new Image(skin.getRegion("default-icon")));
+//        skin.add("drinkRegion", new Image(skin.getRegion("drink-icon")));
+//        skin.add("fishRegion", new Image(skin.getRegion("fish-icon")));
+//        skin.add("fruitRegion", new Image(skin.getRegion("fruit-icon")));
+//        skin.add("icecreamRegion", new Image(skin.getRegion("icecream-icon")));
+//        skin.add("meatRegion", new Image(skin.getRegion("meat-icon")));
+//        skin.add("pizzaRegion", new Image(skin.getRegion("pizza-icon")));
 
         //TextField.TextFieldStyle searchStyle
         TextField.TextFieldStyle manualInput = new TextField.TextFieldStyle();
@@ -165,6 +167,8 @@ public class SkinStyles {
         ImageButton.ImageButtonStyle BADdevButtonStyle = new ImageButton.ImageButtonStyle(BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion,BADdevReqion);
         ImageButton.ImageButtonStyle decode_ibs = new ImageButton.ImageButtonStyle(decodeButtonRegion, decodeButtonRegionClicked, decodeButtonRegionClicked, decodeButtonRegion, decodeButtonRegionClicked, decodeButtonRegionClicked);
         ImageButton.ImageButtonStyle ok_ibs = new ImageButton.ImageButtonStyle(okButtonRegion, okButtonRegionClicked, okButtonRegionClicked, okButtonRegion, okButtonRegionClicked, okButtonRegionClicked);
+        ImageButton.ImageButtonStyle edit_ibs = new ImageButton.ImageButtonStyle(editButton, editButton, editButton, editButton, editButton, editButton);
+
 
         // Checkbox style
         CheckBox.CheckBoxStyle checkBoxStyle = new CheckBox.CheckBoxStyle(checkBox, checkBoxChecked, font, skin.getColor("lt-blue"));
@@ -176,6 +180,7 @@ public class SkinStyles {
         skin.add("questionMarkStyle", question_ibs);
         skin.add("decodeButtonStyle", decode_ibs);
         skin.add("okButtonStyle", ok_ibs);
+        skin.add("editButtonStyle", edit_ibs);
 
         skin.add("BADdevButtonStyle", BADdevButtonStyle);
         skin.add("default", checkBoxStyle);

@@ -43,8 +43,11 @@ public class ScanScreen extends BaseScreen {
                     Thread.sleep(420);
                     processor = new ImageProcessing();
                     processor.ProcessFile(TestApp.taker.scannedImagePath);
-                    System.out.println(processor.getConvertedFile().trim());
-                    fileIO.writeFile(processor.getConvertedFile().trim(), false);
+
+                    String convertedStr = processor.getConvertedFile().trim();
+                    fileIO.writeFile(convertedStr, false);
+                    app.switchScreens(new ListScreen(app, app.itemParser.parse(convertedStr)));
+
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

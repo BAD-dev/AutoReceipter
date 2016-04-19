@@ -2,6 +2,7 @@ package com.github.autoreceipter;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.utils.ArrayMap;
 import com.github.autoreceipter.FridgeItem;
@@ -106,12 +107,13 @@ public class FileIO {
     //
     public ArrayList<FridgeItem> loadItems(final AutoReceipter app) {
         ArrayList<FridgeItem> temp = new ArrayList<FridgeItem>();
+        ArrayMap<String, TextureRegion> foods = populateFoods(app);
+
         String strToRead = readFile();
         Scanner in = new Scanner(strToRead);
         int breakCount = 0;
 
         FridgeItem o = new FridgeItem(app.skin);
-        //o.skin = app.skin;
 
         String str;
         boolean newItem = false;
@@ -144,12 +146,15 @@ public class FileIO {
 
                 // Look for keywords to assign an image
                 String[] separate = name.split("\\s+");
+                boolean imageSet = false;
+                //Image img;
                 for(String s : separate)
-                    if(FridgeItem.foods != null && FridgeItem.foods.containsKey(s)) {
-                        o.setImage(FridgeItem.foods.get(s));
-                        continue;
+                    if(foods != null && foods.containsKey(s.toLowerCase())) {
+                        o.setImage(new Image(new TextureRegion((foods.get(s.toLowerCase())))));
+                        imageSet = true;
                     }
-                o.setImage(FridgeItem.foods.get("default"));
+                if(!imageSet)
+                    o.setImage(new Image(new TextureRegion((foods.get("default")))));
             }
 
             else if(str.equalsIgnoreCase("quantity")) {
@@ -213,5 +218,24 @@ public class FileIO {
             file.writeString(stringToWrite, append);
         else
             System.out.println("File does not exist!");
+    }
+
+    private ArrayMap<String, TextureRegion> populateFoods(AutoReceipter app) {
+        ArrayMap<String, TextureRegion> foods = new ArrayMap<String, TextureRegion>();
+        foods.put("apple", app.skin.get("apple-icon", TextureRegion.class));
+        foods.put("banana", app.skin.get("banana-icon", TextureRegion.class));
+        foods.put("bread", app.skin.get("bread-icon", TextureRegion.class));
+        foods.put("burger", app.skin.get("burger-icon", TextureRegion.class));
+        foods.put("candy", app.skin.get("candy-icon", TextureRegion.class));
+        foods.put("cheese", app.skin.get("cheese-icon", TextureRegion.class));
+        foods.put("coffee", app.skin.get("coffee-icon", TextureRegion.class));
+        foods.put("default", app.skin.get("default-icon", TextureRegion.class));
+        foods.put("drink", app.skin.get("drink-icon", TextureRegion.class));
+        foods.put("fish", app.skin.get("fish-icon", TextureRegion.class));
+        foods.put("fruit", app.skin.get("fruit-icon", TextureRegion.class));
+        foods.put("icecream", app.skin.get("icecream-icon", TextureRegion.class));
+        foods.put("meat", app.skin.get("meat-icon", TextureRegion.class));
+        foods.put("pizza", app.skin.get("pizza-icon", TextureRegion.class));
+        return foods;
     }
 }

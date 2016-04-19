@@ -4,6 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 
 /**
  * Created by Julian on 4/18/2016.
@@ -56,14 +58,71 @@ public class FileIO {
         }
     }
 
+    public String getFilePath() {
+        if(file.exists())
+            return file.path();
+        else
+            return "File does not exist!";
+    }
+
+    // Saves list of passed items to file
     public void saveItems(ArrayList<FridgeItem> items) {
-        // Overwrite whatever is saved
-        boolean append = false;
         String backup;
         if(file.exists())
             backup = readFile();
 
+        String strToWrite = "[INVENTORY]\n";
+        for(FridgeItem o : items) {
+            strToWrite += "item_name " + o.name + "\n";
+            strToWrite += "quantity " + o.quantity + "\n";
+            strToWrite += "cost " + o.cost + "\n";
+            strToWrite += "total_quantity " + o.totalQuantity + "\n";
+        }
 
+        strToWrite += "END";
+
+        writeFile(strToWrite, false);
+    }
+
+    //
+    public ArrayList<FridgeItem> loadItems() {
+        ArrayList<FridgeItem> temp = new ArrayList<FridgeItem>();
+        String strToRead = readFile();
+        Scanner in = new Scanner(strToRead);
+
+        String str = in.next();
+        while(!str.equalsIgnoreCase("END")) {
+            FridgeItem o = new FridgeItem();
+            if(str.equalsIgnoreCase("[INVENTORY]"))
+                continue;
+            else if(str.equalsIgnoreCase("item_name")) {
+                String name = in.next();
+                o.setName(name);
+            }
+            else if(str.equalsIgnoreCase("quantity")) {
+                int q = in.nextInt();
+                o.setQuantity(q);
+            }
+            else if(str.equalsIgnoreCase("cost")) {
+                double cost = in.nextDouble();
+                o.setCost(cost);
+            }
+            else if(str.equalsIgnoreCase("total_quantity")) {
+                int tq = in.nextInt();
+                o.setTotalQuantity(tq);
+            }
+            else if(str.equalsIgnoreCase("last_purchased")) {
+                String date = in.next();
+                Date d = new Date(date);
+                o.setDate(d);
+            }
+            else {
+                System.out.println("Unknown input: " +str);
+            }
+            temp.add(o);
+        }
+
+        return temp;
     }
 
     public String readFile() {

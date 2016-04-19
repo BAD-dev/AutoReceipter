@@ -34,28 +34,38 @@ public class FridgeItem extends Widget {
     public Table widget;
     public Table stats;
 
-    private String name;
-    private Label description;
-    private Image image;
-    private int quantity;
-    private Color color;
-    private Date lastPurchased;
-    private int daysSinceLastPurchase;
-    private int totalQuantity;
-    private Skin skin;
+    public String name;
+    public Label description;
+    public double cost;
+    public Image image;
+    public int quantity;
+    public Color color;
+    public Date lastPurchased;
+    public int daysSinceLastPurchase;
+    public int totalQuantity;
+    public Skin skin;
 
     public FridgeItem(){
-
-    }
-
-    public FridgeItem(String name, String description, Color color, Skin skin) {
         this.widget = new Table();
         this.stats = new Table();
+
+        this.name = "";
+        this.cost = 0.00;
+        this.quantity = 0;
+        this.lastPurchased = new Date();
+    }
+
+    public FridgeItem(String name, double cost, int quantity, Color color, Skin skin) {
+        this.widget = new Table();
+        this.stats = new Table();
+
         this.name = name;
-        this.description = new Label(description, skin);
+        this.description = new Label(name, skin);
+        this.cost = cost;
         this.image = new Image(skin.getRegion("BADdev"));
         this.color = color;
-        this.quantity = 1;
+        this.quantity = quantity;
+        incrementQuantity(quantity);
         this.lastPurchased = new Date();
         this.skin = skin;
 
@@ -65,7 +75,7 @@ public class FridgeItem extends Widget {
         setWidget();
     }
 
-    private final void setWidget() {
+    public final void setWidget() {
         //widget.setWidth(widgetWidth);
         //widget.setHeight(widgetHeight);
         widget.defaults();
@@ -91,12 +101,21 @@ public class FridgeItem extends Widget {
 
     // Returns a string containing item name
     public final String getItemName() {
-        return "Name: " + name;
+        return name;
     }
 
     // Get the current quantity of this item
     public final String getQuantity() {
-        return "Quantity: " + quantity;
+        String str = "";
+        return str + quantity;
+    }
+
+    public final void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public final void setTotalQuantity(int totalQuantity) {
+        this.totalQuantity = totalQuantity;
     }
 
     // Set the date of the last purchased item
@@ -127,6 +146,14 @@ public class FridgeItem extends Widget {
 
     public final Color getColor() {
         return color;
+    }
+
+    public final double getCost() {
+        return cost;
+    }
+
+    public final void setCost(double cost) {
+        this.cost = cost;
     }
 
     // Used for getting background image

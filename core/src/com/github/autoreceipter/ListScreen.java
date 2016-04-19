@@ -52,7 +52,7 @@ public class ListScreen extends BaseScreen {
         list = new ArrayList<ListItem>();
         generateListItems(items);
 
-        ImageButton fridgeButton = new ImageButton(app.skin.get("fridgeButtonStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton fridgeButton = new ImageButton(app.skin.get("okButtonStyle", ImageButton.ImageButtonStyle.class));
 
         fridgeButton.addListener(new ClickListener() {
             @Override
@@ -64,7 +64,7 @@ public class ListScreen extends BaseScreen {
             }
         });
 
-        table.add(scrollPane);
+        table.add(scrollPane).row();
         table.add(fridgeButton);
     }
 

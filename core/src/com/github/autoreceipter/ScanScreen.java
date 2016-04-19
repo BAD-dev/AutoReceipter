@@ -52,6 +52,7 @@ public class ScanScreen extends BaseScreen {
 
                 } catch (Exception e) {
                     e.printStackTrace();
+                    app.switchScreens(new MainMenuScreen(app));
                 }
 
                 //app.switchScreens(new FridgeScreen(app));

@@ -38,9 +38,9 @@ public class SkinStyles {
         font.getData().setScale(1, 1);
         skin.add("default", font);
         skin.add("segoeui", font("fonts/segoeui.ttf", 20));
-        skin.add("segoeui_bold", font("fonts/segoeui_b.ttf", 30));
-        skin.add("segoeui_semi_bold", font("fonts/segoeui_sb.ttf", 20));
-        skin.add("segoeui_light", font("fonts/segoeui_l.ttf", 20));
+        skin.add("segoeui_bold", font("fonts/segoeui_b.ttf", 40));
+        skin.add("segoeui_semi_bold", font("fonts/segoeui_sb.ttf", 30));
+        skin.add("segoeui_light", font("fonts/segoeui_l.ttf", 30));
 
         BitmapFont itemNameFont = new BitmapFont();
         itemNameFont.getData().setScale(2, 2);
@@ -61,6 +61,16 @@ public class SkinStyles {
         segoeui.font = skin.getFont("segoeui");
         segoeui.fontColor = Color.BLACK;
         skin.add("segoeui", segoeui);
+
+        Label.LabelStyle segoeui_semibold = new Label.LabelStyle();
+        segoeui_semibold.font = skin.getFont("segoeui_semi_bold");
+        segoeui_semibold.fontColor = Color.BLACK;
+        skin.add("segoeui_semibold", segoeui_semibold);
+
+        Label.LabelStyle segoeui_light = new Label.LabelStyle();
+        segoeui_light.font = skin.getFont("segoeui_light");
+        segoeui_light.fontColor = Color.BLACK;
+        skin.add("segoeui_light", segoeui_light);
 
         Label.LabelStyle segoeui_bold = new Label.LabelStyle();
         segoeui_bold.font = skin.getFont("segoeui_bold");

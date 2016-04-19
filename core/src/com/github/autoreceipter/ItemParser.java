@@ -20,7 +20,7 @@ public class ItemParser {
         this.app = app;
     }
 
-    public ArrayList<FridgeItem> parse(String textToConvert) {
+    public ArrayList<FridgeItem> parse(String textToConvert) throws Exception {
         ArrayList<FridgeItem> temp = new ArrayList<FridgeItem>();
 
         ArrayList<String> itemList = new ArrayList<String>();

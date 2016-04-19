@@ -52,7 +52,7 @@ public class ListScreen extends BaseScreen {
         list = new ArrayList<ListItem>();
         generateListItems(items);
 
-        ImageButton fridgeButton = new ImageButton(app.skin.get("fridgeButtonStyle", ImageButton.ImageButtonStyle.class));
+        ImageButton fridgeButton = new ImageButton(app.skin.get("okButtonStyle", ImageButton.ImageButtonStyle.class));
 
         fridgeButton.addListener(new ClickListener() {
             @Override
@@ -64,14 +64,14 @@ public class ListScreen extends BaseScreen {
             }
         });
 
-        table.add(scrollPane);
+        table.add(scrollPane).row();
         table.add(fridgeButton);
     }
 
     public void generateListItems(ArrayList<FridgeItem> items) {
         for(int x=0; x<items.size(); x++) {
             Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
-            ListItem o = new ListItem(items.get(x).getItemName(), c, app.skin);
+            ListItem o = new ListItem(items.get(x), app.skin);
             list.add(o);
             scrollTable.add(o.widget).expandX().prefHeight(300f).padLeft(35f).left().row();
         }

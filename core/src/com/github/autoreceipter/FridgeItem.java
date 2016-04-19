@@ -83,7 +83,6 @@ public class FridgeItem extends Widget {
         this.image = new Image(new TextureRegion(skin.getRegion("default-icon")));
         this.color = color;
         this.quantity = quantity;
-        incrementQuantity(quantity);
         this.lastPurchased = new Date();
         this.skin = skin;
 

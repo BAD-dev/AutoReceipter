@@ -152,8 +152,8 @@ public class SkinStyles {
         //TextField.TextFieldStyle searchStyle
         TextField.TextFieldStyle manualInput = new TextField.TextFieldStyle();
         manualInput.font = skin.getFont("segoeui");
-
-
+        manualInput.fontColor = Color.BLACK;
+        skin.add("textFieldStyle", manualInput);
 
         /* ImageButtons */
         ImageButton.ImageButtonStyle scan_ibs = new ImageButton.ImageButtonStyle(scanButtonRegion, scanButtonRegionClicked, scanButtonRegionClicked, scanButtonRegion, scanButtonRegionClicked, scanButtonRegionClicked);

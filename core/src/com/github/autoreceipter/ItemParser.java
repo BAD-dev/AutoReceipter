@@ -198,7 +198,9 @@ public class ItemParser {
         int x=0;
         for(x=0; x<itemList2.size(); x++) {
             FridgeItem test = new FridgeItem(app.skin);
-            test.setName(itemList2.get(x));
+            test.setItemName(itemList2.get(x));
+            for(String s : itemList2)
+                System.out.println(s);
             test.setCost(Double.parseDouble(costList2.get(x)));
             test.incrementQuantity(1);
             //cost is probably not a String, will need to parse in as double/float

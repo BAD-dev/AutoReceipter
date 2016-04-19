@@ -6,35 +6,42 @@ filter: Nearest,Nearest
 repeat: none
 BADdev
   rotate: false
-  xy: 794, 748
+  xy: 794, 825
   size: 180, 180
   orig: 180, 180
   offset: 0, 0
   index: -1
 back-button
   rotate: false
-  xy: 501, 824
+  xy: 501, 901
   size: 201, 104
   orig: 201, 104
   offset: 0, 0
   index: -1
 checkbox
   rotate: false
-  xy: 2, 900
+  xy: 2, 977
   size: 28, 28
   orig: 28, 28
   offset: 0, 0
   index: -1
 checkbox_checked
   rotate: false
-  xy: 32, 900
+  xy: 32, 977
   size: 28, 28
   orig: 28, 28
   offset: 0, 0
   index: -1
 decode-button
   rotate: false
-  xy: 2, 668
+  xy: 2, 745
+  size: 456, 155
+  orig: 456, 155
+  offset: 0, 0
+  index: -1
+decode-button-clicked
+  rotate: false
+  xy: 460, 668
   size: 456, 155
   orig: 456, 155
   offset: 0, 0
@@ -48,70 +55,70 @@ fridge-button2-clicked
   index: -1
 fridge-button3
   rotate: false
-  xy: 460, 591
+  xy: 2, 588
   size: 456, 155
   orig: 456, 155
   offset: 0, 0
   index: -1
 fridge-button3-clicked
   rotate: false
-  xy: 2, 511
+  xy: 460, 511
   size: 456, 155
   orig: 456, 155
   offset: 0, 0
   index: -1
 list-button3
   rotate: false
-  xy: 460, 434
+  xy: 2, 431
   size: 456, 155
   orig: 456, 155
   offset: 0, 0
   index: -1
 list-button3-clicked
   rotate: false
-  xy: 2, 354
+  xy: 460, 354
   size: 456, 155
   orig: 456, 155
   offset: 0, 0
   index: -1
 loadingSheet
   rotate: false
-  xy: 62, 883
+  xy: 62, 960
   size: 299, 45
   orig: 299, 45
   offset: 0, 0
   index: -1
 question-mark-button
   rotate: false
-  xy: 704, 818
+  xy: 704, 895
   size: 88, 110
   orig: 88, 110
   offset: 0, 0
   index: -1
 question-mark-button-clicked
   rotate: false
-  xy: 411, 825
+  xy: 411, 902
   size: 88, 103
   orig: 88, 103
   offset: 0, 0
   index: -1
 question-mark-button2
   rotate: false
-  xy: 363, 855
+  xy: 363, 932
   size: 46, 73
   orig: 46, 73
   offset: 0, 0
   index: -1
 scan-button3
   rotate: false
-  xy: 460, 277
+  xy: 2, 274
   size: 456, 155
   orig: 456, 155
   offset: 0, 0
   index: -1
 scan-button3-clicked
   rotate: false
-  xy: 2, 197
+  xy: 460, 197
   size: 456, 155
   orig: 456, 155
   offset: 0, 0

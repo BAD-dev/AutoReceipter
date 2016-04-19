@@ -22,6 +22,7 @@ public class MainMenuScreen extends BaseScreen {
         final ImageButton listButton = new ImageButton(app.skin.get("listButtonStyle", ImageButton.ImageButtonStyle.class));
         final ImageButton questionMarkButton = new ImageButton(app.skin.get("questionMarkStyle", ImageButton.ImageButtonStyle.class));
 
+
         // Change screens if scan button is pressed
         scanButton.addListener(new ClickListener() {
             @Override

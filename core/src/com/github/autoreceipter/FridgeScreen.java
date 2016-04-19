@@ -52,7 +52,8 @@ public class FridgeScreen extends BaseScreen {
         // This will be removed when scanning works
         if(app.items.isEmpty()) {
             app.items = new ArrayList<FridgeItem>();
-            createFridgeInventory();
+            table.add(new Label("You don't have any saved items!", app.skin, "segoeui_bold"));
+            //createFridgeInventory();
         }
 
         itemsDisplayed = new ArrayList<FridgeItem>();

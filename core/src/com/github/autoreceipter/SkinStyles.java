@@ -38,9 +38,9 @@ public class SkinStyles {
         font.getData().setScale(1, 1);
         skin.add("default", font);
         skin.add("segoeui", font("fonts/segoeui.ttf", 20));
-        skin.add("segoeui_bold", font("fonts/segoeui_b.ttf", 30));
-        skin.add("segoeui_semi_bold", font("fonts/segoeui_sb.ttf", 20));
-        skin.add("segoeui_light", font("fonts/segoeui_l.ttf", 20));
+        skin.add("segoeui_bold", font("fonts/segoeui_b.ttf", 40));
+        skin.add("segoeui_semi_bold", font("fonts/segoeui_sb.ttf", 30));
+        skin.add("segoeui_light", font("fonts/segoeui_l.ttf", 30));
 
         BitmapFont itemNameFont = new BitmapFont();
         itemNameFont.getData().setScale(2, 2);
@@ -61,6 +61,16 @@ public class SkinStyles {
         segoeui.font = skin.getFont("segoeui");
         segoeui.fontColor = Color.BLACK;
         skin.add("segoeui", segoeui);
+
+        Label.LabelStyle segoeui_semibold = new Label.LabelStyle();
+        segoeui_semibold.font = skin.getFont("segoeui_semi_bold");
+        segoeui_semibold.fontColor = Color.BLACK;
+        skin.add("segoeui_semibold", segoeui_semibold);
+
+        Label.LabelStyle segoeui_light = new Label.LabelStyle();
+        segoeui_light.font = skin.getFont("segoeui_light");
+        segoeui_light.fontColor = Color.BLACK;
+        skin.add("segoeui_light", segoeui_light);
 
         Label.LabelStyle segoeui_bold = new Label.LabelStyle();
         segoeui_bold.font = skin.getFont("segoeui_bold");
@@ -83,7 +93,7 @@ public class SkinStyles {
 //        Animation loadingAnimation = new Animation(0.025f, frames);
 //        skin.add("loadingAnimation", loadingAnimation);
 
-        /* Skins */
+        /* Button Skins */
         skin.add("scan-button", atlas.findRegion("scan-button3"), TextureRegion.class);
         skin.add("fridge-button", atlas.findRegion("fridge-button3"), TextureRegion.class);
         skin.add("list-button", atlas.findRegion("list-button3"), TextureRegion.class);
@@ -97,6 +107,12 @@ public class SkinStyles {
         skin.add("ok-button", atlas.findRegion("ok-button"), TextureRegion.class);
         skin.add("ok-button-clicked", atlas.findRegion("ok-button-clicked"), TextureRegion.class);
         skin.add("edit-button", atlas.findRegion("edit-button"), TextureRegion.class);
+        skin.add("manual-button", atlas.findRegion("manual-button"), TextureRegion.class);
+        skin.add("manual-button-clicked", atlas.findRegion("manual-button-clicked"), TextureRegion.class);
+        skin.add("delete-button", atlas.findRegion("delete-button"), TextureRegion.class);
+        skin.add("delete-button-clicked", atlas.findRegion("delete-button-clicked"), TextureRegion.class);
+        skin.add("auto-button", atlas.findRegion("auto-button"), TextureRegion.class);
+        skin.add("auto-button-clicked", atlas.findRegion("auto-button-clicked"), TextureRegion.class);
         skin.add("BADdev", atlas.findRegion("BADdev"), TextureRegion.class);
 
         /* Food skins */
@@ -134,6 +150,13 @@ public class SkinStyles {
         TextureRegionDrawable okButtonRegion = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button")));
         TextureRegionDrawable okButtonRegionClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("ok-button-clicked")));
         TextureRegionDrawable editButton = new TextureRegionDrawable(new TextureRegion(skin.getRegion("edit-button")));
+//        TextureRegionDrawable editButtonClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("edit-button-clicked")));
+        TextureRegionDrawable deleteButton = new TextureRegionDrawable(new TextureRegion(skin.getRegion("delete-button")));
+        TextureRegionDrawable deleteButtonClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("delete-button-clicked")));
+        TextureRegionDrawable autoButton = new TextureRegionDrawable(new TextureRegion(skin.getRegion("auto-button")));
+        TextureRegionDrawable autoButtonClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("auto-button-clicked")));
+        TextureRegionDrawable manualButton = new TextureRegionDrawable(new TextureRegion(skin.getRegion("manual-button")));
+        TextureRegionDrawable manualButtonClicked = new TextureRegionDrawable(new TextureRegion(skin.getRegion("manual-button-clicked")));
 
         /* Food texture regions */
 //        skin.add("appleRegion", new Image(skin.getRegion("apple-icon")));
@@ -168,7 +191,9 @@ public class SkinStyles {
         ImageButton.ImageButtonStyle decode_ibs = new ImageButton.ImageButtonStyle(decodeButtonRegion, decodeButtonRegionClicked, decodeButtonRegionClicked, decodeButtonRegion, decodeButtonRegionClicked, decodeButtonRegionClicked);
         ImageButton.ImageButtonStyle ok_ibs = new ImageButton.ImageButtonStyle(okButtonRegion, okButtonRegionClicked, okButtonRegionClicked, okButtonRegion, okButtonRegionClicked, okButtonRegionClicked);
         ImageButton.ImageButtonStyle edit_ibs = new ImageButton.ImageButtonStyle(editButton, editButton, editButton, editButton, editButton, editButton);
-
+        ImageButton.ImageButtonStyle manual_ibs = new ImageButton.ImageButtonStyle(manualButton, manualButtonClicked, manualButtonClicked, manualButton, manualButtonClicked, manualButtonClicked);
+        ImageButton.ImageButtonStyle delete_ibs = new ImageButton.ImageButtonStyle(deleteButton, deleteButtonClicked, deleteButtonClicked, deleteButton, deleteButtonClicked, deleteButtonClicked);
+        ImageButton.ImageButtonStyle auto_ibs = new ImageButton.ImageButtonStyle(autoButton, autoButtonClicked, autoButtonClicked, autoButton, autoButtonClicked, autoButtonClicked);
 
         // Checkbox style
         CheckBox.CheckBoxStyle checkBoxStyle = new CheckBox.CheckBoxStyle(checkBox, checkBoxChecked, font, skin.getColor("lt-blue"));
@@ -181,6 +206,9 @@ public class SkinStyles {
         skin.add("decodeButtonStyle", decode_ibs);
         skin.add("okButtonStyle", ok_ibs);
         skin.add("editButtonStyle", edit_ibs);
+        skin.add("manualButtonStyle", manual_ibs);
+        skin.add("deleteButtonStyle", delete_ibs);
+        skin.add("autoButtonStyle", auto_ibs);
 
         skin.add("BADdevButtonStyle", BADdevButtonStyle);
         skin.add("default", checkBoxStyle);

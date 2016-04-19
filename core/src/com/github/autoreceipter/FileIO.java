@@ -150,11 +150,16 @@ public class FileIO {
                 //Image img;
                 for(String s : separate)
                     if(foods != null && foods.containsKey(s.toLowerCase())) {
-                        o.setImage(new Image(new TextureRegion((foods.get(s.toLowerCase())))));
+                        Image img = new Image(new TextureRegion((foods.get(s.toLowerCase()))));
+                        img.setScale(0.75f);
+                        o.setImage(img);
                         imageSet = true;
                     }
-                if(!imageSet)
-                    o.setImage(new Image(new TextureRegion((foods.get("default")))));
+                if(!imageSet) {
+                    Image img = new Image(new TextureRegion((foods.get("default"))));
+                    img.setScale(0.75f);
+                    o.setImage(img);
+                }
             }
 
             else if(str.equalsIgnoreCase("quantity")) {

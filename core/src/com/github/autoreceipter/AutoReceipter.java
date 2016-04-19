@@ -56,7 +56,6 @@ public abstract class AutoReceipter implements ApplicationListener {
         new SkinStyles().style(skin, atlas);
 
         // Open saved item list and parse whats in it
-        //fileIO = new FileIO("data/sampleInput2.txt", FileIO.STORAGE.INTERNAL);
         fileIO = new FileIO();
         fileIO.changeFilePath("data/sampleInput2.txt", FileIO.STORAGE.INTERNAL);
         this.items = fileIO.loadItems(this);

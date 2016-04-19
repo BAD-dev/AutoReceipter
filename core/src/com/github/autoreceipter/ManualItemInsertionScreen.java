@@ -31,6 +31,7 @@ public class ManualItemInsertionScreen extends BaseScreen {
         inputTable.debug();
 
 
+        ImageButton accept = new ImageButton(app.skin.get("manualButtonStyle", ImageButton.ImageButtonStyle.class));
         final TextField name = new TextField("NAME", app.skin.get("textFieldStyle", TextField.TextFieldStyle.class));
         inputTable.add(name).size(300, 150);
         final TextField quanitity = new TextField("Quantity", app.skin.get("textFieldStyle", TextField.TextFieldStyle.class));
@@ -52,8 +53,8 @@ public class ManualItemInsertionScreen extends BaseScreen {
 
         table.add(inputTable).row();
 
-        ImageButton accept = new ImageButton(app.skin.get("okButtonStyle", ImageButton.ImageButtonStyle.class));
-        accept.addListener(new ClickListener() {
+        ImageButton ok = new ImageButton(app.skin.get("okButtonStyle", ImageButton.ImageButtonStyle.class));
+        ok.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);

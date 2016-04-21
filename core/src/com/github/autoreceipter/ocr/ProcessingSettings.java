@@ -1,5 +1,9 @@
 package com.github.autoreceipter.ocr;
 
+/*
+ *	Settings for proper output if running
+ *	from command line.
+ */
 public class ProcessingSettings {
 
 	public String asUrlParams() {

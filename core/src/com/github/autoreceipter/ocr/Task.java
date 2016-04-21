@@ -6,6 +6,9 @@ import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import org.xml.sax.*;
 
+/*
+ *	Used to properly read from datastream
+ */
 public class Task {
 	public enum TaskStatus {
 		Unknown, Submitted, Queued, InProgress, Completed, ProcessingFailed, Deleted, NotEnoughCredits

@@ -13,12 +13,17 @@ import com.badlogic.gdx.scenes.scene2d.utils.NinePatchDrawable;
 import java.util.ArrayList;
 
 /**
- * Created by Georg on 4/19/2016.
+ * Created by Georg on 4/19/2016.'
+ *
+ * Used to manually input item data for ListScreen or ShoppingScreen
  */
 public class ManualItemInsertionScreen extends BaseScreen {
 
     ArrayList<FridgeItem> list;
 
+    /*
+     *  Properly create and position all widgets for screen
+     */
     public ManualItemInsertionScreen(final AutoReceipter app, final ArrayList<FridgeItem> listToAddTo, final BaseScreen screenToSwap) {
         super(app);
 
@@ -60,6 +65,7 @@ public class ManualItemInsertionScreen extends BaseScreen {
                 Color c = new Color(MathUtils.random(0.5f), MathUtils.random(0.5f), MathUtils.random(0.5f), 1f);
 
                 int quant = 1;
+                //Error handling for quantity read-in
                 try {
                     quant = Integer.valueOf(quanitity.getText().trim());
                 } catch (Exception e) {

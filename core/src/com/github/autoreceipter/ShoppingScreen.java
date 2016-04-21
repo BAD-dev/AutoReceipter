@@ -14,6 +14,9 @@ import java.util.Date;
 
 /**
  * Created by Georg on 4/18/2016.
+ *
+ * Screen used to display shopping list information
+ * along with creating shopping list items
  */
 public class ShoppingScreen extends BaseScreen {
 
@@ -23,6 +26,11 @@ public class ShoppingScreen extends BaseScreen {
 
     boolean deletionMode = false;
 
+    /*
+     * Used primarily for call from MainMenu
+     *
+     * Setting up widgets and UI
+     */
     public ShoppingScreen(final AutoReceipter app) {
         super(app);
 
@@ -35,9 +43,7 @@ public class ShoppingScreen extends BaseScreen {
         Table buttonTable = new Table();
 
         buttonTable.add(manual).left().padLeft(100);
-        //buttonTable.add(new Label("Manual Input", app.skin)).left();
         buttonTable.add().padLeft(100).padRight(100);
-        //buttonTable.add(new Label("Automatic", app.skin)).right();
         buttonTable.add(automatic).right().padRight(100);
 
         table.add(buttonTable).row();
@@ -75,7 +81,6 @@ public class ShoppingScreen extends BaseScreen {
             Table forDeletion = new Table();
             ImageButton deletion = new ImageButton(app.skin.get("deleteButtonStyle", ImageButton.ImageButtonStyle.class));
             forDeletion.add(deletion);
-            //forDeletion.add(new Label("Deletion", app.skin)).left();
             table.add(forDeletion);
 
             deletion.addListener(new ClickListener() {
@@ -105,6 +110,11 @@ public class ShoppingScreen extends BaseScreen {
 
     }
 
+    /*
+     *  Used for shopping screen state cycle where the input is a list
+     *
+     *  Setting up widgets and UI
+     */
     public ShoppingScreen(final AutoReceipter app,  ArrayList<FridgeItem> createdList) {
         super(app);
 
@@ -117,9 +127,7 @@ public class ShoppingScreen extends BaseScreen {
         Table buttonTable = new Table();
 
         buttonTable.add(manual).left().padLeft(100);
-        //buttonTable.add(new Label("Manual Input", app.skin)).left();
         buttonTable.add().padLeft(100).padRight(100);
-        //buttonTable.add(new Label("Automatic", app.skin)).right();
         buttonTable.add(automatic).right().padRight(100);
 
         table.add(buttonTable).row();
@@ -153,9 +161,9 @@ public class ShoppingScreen extends BaseScreen {
         Table forDeletion = new Table();
         ImageButton deletion = new ImageButton(app.skin.get("deleteButtonStyle", ImageButton.ImageButtonStyle.class));
         forDeletion.add(deletion);
-        //forDeletion.add(new Label("Deletion", app.skin)).left();
         table.add(forDeletion);
 
+        //Used to begin state to delete items
         deletion.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -181,6 +189,9 @@ public class ShoppingScreen extends BaseScreen {
         });
     }
 
+    /*
+     *  Add items to the screen, converting to ListItems
+     */
     public void addItemsToTable(ArrayList<FridgeItem> list) {
         if(listItems == null)
             listItems = new ArrayList<ListItem>();
@@ -201,6 +212,9 @@ public class ShoppingScreen extends BaseScreen {
         }
     }
 
+    /*
+     * Used to make sure multiple items don't exist
+     */
     public boolean notInListItems(FridgeItem itm) {
         for(int x=0; x<listItems.size(); x++) {
             if(listItems.get(x).getItemName() == itm.getItemName())
@@ -210,6 +224,9 @@ public class ShoppingScreen extends BaseScreen {
         return true;
     }
 
+    /*
+     * Used to create list automatically from previouse list data
+     */
     public void generateAutomaticList() {
         ArrayList<FridgeItem> list = new ArrayList<FridgeItem>();
         list.addAll(items);

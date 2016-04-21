@@ -11,6 +11,7 @@ import com.github.autoreceipter.ocr.CameraController;
  */
 public class TestApp extends AutoReceipter {
 
+    //Used to launch camera task
     public static CameraController taker;
 
     public TestApp(CameraController taker) {

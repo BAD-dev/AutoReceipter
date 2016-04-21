@@ -3,6 +3,9 @@ package com.github.autoreceipter.ocr;
 import com.github.autoreceipter.*;
 import java.util.*;
 
+/*
+ *	Used if running from the command line
+ */
 public class CmdLineOptions {
 
 		/**

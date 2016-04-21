@@ -15,6 +15,10 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
+/*
+ *	Used to Convert, Upload, and Download
+ *	files for OCR at abbyy
+ */
 public class Client {
 	public String applicationId;
 	public String password;

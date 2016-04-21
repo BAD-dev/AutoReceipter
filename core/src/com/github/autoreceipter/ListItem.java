@@ -14,6 +14,9 @@ import com.github.autoreceipter.ocr.ImageProcessing;
 
 /**
  * Created by Julian on 4/16/2016.
+ *
+ * A Fridge Item with an attached CheckBox
+ * Used for item selection
  */
 public class ListItem extends FridgeItem {
 
@@ -41,6 +44,10 @@ public class ListItem extends FridgeItem {
         widget.add(checkBox).pad(20f).right();
     }
 
+    /*
+     * Simplified constructor if a
+     * FridgeItem is to be copied
+     */
     public ListItem(FridgeItem item, Skin skin) {
         super(item.getItemName(), item.getCost(), item.quantity, item.getColor(), skin);
 
@@ -62,11 +69,18 @@ public class ListItem extends FridgeItem {
         widget.add(checkBox).padLeft(20).right();
     }
 
+    /*
+     *  Show/Hide checkbox
+     */
     public ListItem visibilityCheckbox(boolean b) {
         checkBox.setVisible(b);
         return this;
     }
 
+    /*
+     *  Set the state of checked and show
+     *  state in checkbox
+     */
     public void setChecked(boolean b) {
         checkBox.setChecked(b);
         checked = b;

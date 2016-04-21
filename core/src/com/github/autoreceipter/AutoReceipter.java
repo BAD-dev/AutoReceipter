@@ -57,7 +57,7 @@ public abstract class AutoReceipter implements ApplicationListener {
 
         // Open saved item list and parse whats in it
         fileIO = new FileIO();
-        fileIO.changeFilePath("data/sampleInput2.txt", FileIO.STORAGE.INTERNAL);
+        fileIO.changeFilePath("itemList.txt", FileIO.STORAGE.EXTERNAL);
         this.items = fileIO.loadItems(this);
         fileIO.changeFilePath("data/sampleOutput.txt", FileIO.STORAGE.EXTERNAL);
         fileIO.saveItems(items);
@@ -167,6 +167,8 @@ public abstract class AutoReceipter implements ApplicationListener {
 
     @Override
     public void dispose() {
+        fileIO.changeFilePath("itemList.txt", FileIO.STORAGE.EXTERNAL);
+        fileIO.saveItems(this.items);
         stage.dispose();
         skin.dispose();
         atlas.dispose();

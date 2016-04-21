@@ -110,6 +110,8 @@ public class FileIO {
         ArrayMap<String, TextureRegion> foods = populateFoods(app);
 
         String strToRead = readFile();
+        if(strToRead == "File does not exist!")
+            return temp;
         Scanner in = new Scanner(strToRead);
         int breakCount = 0;
 
@@ -151,13 +153,13 @@ public class FileIO {
                 for(String s : separate)
                     if(foods != null && foods.containsKey(s.toLowerCase())) {
                         Image img = new Image(new TextureRegion((foods.get(s.toLowerCase()))));
-                        img.setScale(0.75f);
+                        //img.setSize(170, 170);
                         o.setImage(img);
                         imageSet = true;
                     }
                 if(!imageSet) {
                     Image img = new Image(new TextureRegion((foods.get("default"))));
-                    img.setScale(0.75f);
+                    //img.setSize(170, 170);
                     o.setImage(img);
                 }
             }

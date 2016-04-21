@@ -118,17 +118,17 @@ public class FridgeItem extends Widget {
         //widget.setBackground(new NinePatchDrawable(getNinePatch("background/background_trans.png")));
         widget.setWidth(widgetWidth);
 
-        widget.add(image).left();
+        widget.add(image).size(155, 155).left();
         //stats.add(this.getImage()).left();
         stats.add(new Label(name, skin, "segoeui_bold")).pad(2f).left().top().row();
         stats.add(new Label("Amount in Fridge: "+getQuantity(), skin, "segoeui")).pad(2f).left().top().row();
         stats.add(new Label("Cost per item: "+getCostStr(), skin, "segoeui")).pad(2f).left().top().row();
         stats.add(new Label("Last purchased on: "+getLastPurchased(), skin, "segoeui")).pad(2f).left().top().row();
 
-        widget.add(stats).center().padLeft(30f);
+        widget.add(stats).center().width(400f).pad(20f);
 
         final ImageButton edit = new ImageButton(skin.get("editButtonStyle", ImageButton.ImageButtonStyle.class));
-        widget.add(edit).padLeft(100f).right().expandX();
+        widget.add(edit).padLeft(50f).right();
     }
 
     // Sets dimensions for the this widget
